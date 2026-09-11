@@ -1,3 +1,12 @@
+/* Pico's spacing defaults are roomy; tighten the whole app via its custom
+   properties: form element padding (inputs, selects, buttons) and the general
+   spacing unit (table cell padding, block margins). */
+:root {
+  --pico-form-element-spacing-vertical: 0.4rem;
+  --pico-form-element-spacing-horizontal: 0.75rem;
+  --pico-spacing: 0.75rem;
+}
+
 .container-fluid {
   max-width: 72rem;
   margin-inline: auto;
@@ -93,12 +102,31 @@
     grid-template-columns: repeat(auto-fit, minmax(0, 11rem));
   }
 }
+/* Inside a control grid the gap comes from the grid alone; the controls' own
+   bottom margins would double it when the columns stack. */
+fieldset.grid label :where(input, select, [role="group"]) {
+  margin-bottom: 0;
+}
 
 .overflow-auto {
   overflow: auto;
 }
 .nowrap {
   white-space: nowrap;
+}
+
+/* Dense tables: less vertical padding than Pico's spacing/2, and equal-width
+   digits so dates and counts line up between rows. Numeric columns are marked
+   .num and right-aligned so magnitudes can be compared at a glance. */
+th,
+td {
+  padding-block: 0.25rem;
+}
+table {
+  font-variant-numeric: tabular-nums;
+}
+.num {
+  text-align: right;
 }
 
 /* On narrow screens the authors table scrolls sideways instead of crushing

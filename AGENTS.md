@@ -261,7 +261,17 @@ right (a theme switch shows up on the next render).
 
 ## Styling and icons
 
-Pico provides the look; `css/app.css` (target: about 150 lines) is limited to chart
+Pico's spacing defaults are roomy, so `css/app.css` tightens the whole app through
+Pico's custom properties on `:root`: `--pico-form-element-spacing-vertical/horizontal`
+(input, select and button padding) and `--pico-spacing` (the general unit behind table
+cell padding, block margins and grid gaps, which therefore all scale together). Inside
+`fieldset.grid` the controls' own bottom margins are zeroed — the grid gap alone spaces
+them, so stacked columns don't get double gaps. Tables are denser still (cell
+`padding-block` below Pico's spacing/2) and set `font-variant-numeric: tabular-nums`;
+numeric columns carry a `.num` class (right-aligned), and the commit list formats dates
+with all-numeric two-digit fields so every date is the same width and the column aligns.
+
+Pico provides the look; `css/app.css` (target: about 200 lines) is limited to chart
 containers, the dropzone, commit detail rows, the icon classes and small fixes. Layout is
 `container-fluid` with a max width; tables sit in `overflow-auto` wrappers. No external
 fonts.

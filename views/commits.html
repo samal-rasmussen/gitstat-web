@@ -34,8 +34,8 @@
           <th>Date</th>
           <th>Author</th>
           <th>Title</th>
-          <th>Additions</th>
-          <th>Deletions</th>
+          <th class="num">Additions</th>
+          <th class="num">Deletions</th>
           <th></th>
         </tr>
       </thead>
@@ -52,8 +52,8 @@
             <td class="nowrap" x-text="dateLabel(c.time)"></td>
             <td class="nowrap" x-text="c.author"></td>
             <td x-text="c.title"></td>
-            <td class="added" x-text="c.additions.toLocaleString()"></td>
-            <td class="removed" x-text="c.deletions.toLocaleString()"></td>
+            <td class="added num" x-text="c.additions.toLocaleString()"></td>
+            <td class="removed num" x-text="c.deletions.toLocaleString()"></td>
             <td>
               <span class="icon icon-git-merge" x-show="c.isMerge" aria-label="merge commit"></span>
             </td>
@@ -77,8 +77,8 @@
                   <thead>
                     <tr>
                       <th>File</th>
-                      <th>Additions</th>
-                      <th>Deletions</th>
+                      <th class="num">Additions</th>
+                      <th class="num">Deletions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -94,10 +94,10 @@
                           <td colspan="2">binary</td>
                         </template>
                         <template x-if="!f.isBinary">
-                          <td class="added" x-text="f.additions.toLocaleString()"></td>
+                          <td class="added num" x-text="f.additions.toLocaleString()"></td>
                         </template>
                         <template x-if="!f.isBinary">
-                          <td class="removed" x-text="f.deletions.toLocaleString()"></td>
+                          <td class="removed num" x-text="f.deletions.toLocaleString()"></td>
                         </template>
                       </tr>
                     </template>

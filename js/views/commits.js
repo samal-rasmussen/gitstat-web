@@ -20,9 +20,14 @@ export function registerCommitsView(Alpine) {
     /** @type {{ query: Record<string, string>, setQuery: (patch: Record<string, string>) => void }} */ (
       Alpine.store("router")
     );
+  // All-numeric two-digit fields give every date the same width, so the
+  // column aligns under tabular-nums.
   const dateFormat = new Intl.DateTimeFormat(undefined, {
-    dateStyle: "medium",
-    timeStyle: "short",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
   });
 
   Alpine.data("commitsView", () => ({

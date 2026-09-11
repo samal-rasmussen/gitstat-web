@@ -144,7 +144,7 @@ export function registerGraphsView(Alpine) {
           (group) =>
             `<tr><td class="nowrap">${escapeHtml(group.name)}${
               othersSet.has(group.name) ? " <small>(in Others)</small>" : ""
-            }</td><td>${group.total.toLocaleString()}</td><td>${group.average.toFixed(1)}</td></tr>`,
+            }</td><td class="num">${group.total.toLocaleString()}</td><td class="num">${group.average.toFixed(1)}</td></tr>`,
         )
         .join("");
       line.render(

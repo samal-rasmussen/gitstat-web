@@ -100,7 +100,7 @@ export function registerConfigView(Alpine) {
           const alias = store.aliases[name] ?? "";
           const checked = excluded.has(alias === "" ? name : alias) ? " checked" : "";
           return (
-            `<tr><td>${escapeHtml(name)}</td><td>${count.toLocaleString()}</td>` +
+            `<tr><td>${escapeHtml(name)}</td><td class="num">${count.toLocaleString()}</td>` +
             `<td><input type="text" list="known-authors" data-kind="alias" data-raw="${escapeHtml(name)}" value="${escapeHtml(alias)}"></td>` +
             `<td><input type="checkbox" data-kind="exclude" data-raw="${escapeHtml(name)}"${checked}></td></tr>`
           );
