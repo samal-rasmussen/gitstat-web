@@ -142,7 +142,7 @@ export function registerGraphsView(Alpine) {
       tbody.innerHTML = groups
         .map(
           (group) =>
-            `<tr><td>${escapeHtml(group.name)}${
+            `<tr><td class="nowrap">${escapeHtml(group.name)}${
               othersSet.has(group.name) ? " <small>(in Others)</small>" : ""
             }</td><td>${group.total.toLocaleString()}</td><td>${group.average.toFixed(1)}</td></tr>`,
         )

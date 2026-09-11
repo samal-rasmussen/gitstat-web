@@ -68,17 +68,49 @@
   }
 }
 
+/* Chart heights scale with the viewport: compact on phones, room to breathe
+   on wide screens. Chart.js follows the container size. */
 .chart-line,
 .chart-pie {
   position: relative;
-  height: 24rem;
+  height: clamp(14rem, 8rem + 25vw, 30rem);
 }
 .chart-pie {
-  height: 20rem;
+  height: clamp(13rem, 6rem + 22vw, 24rem);
+}
+
+/* Wide screens: forms and prose keep a readable width instead of stretching
+   across the whole container, and control grids cap their column width so
+   selects and buttons stay hand-sized. Data views (charts, tables) use the
+   full width. */
+.narrow {
+  max-width: 42rem;
+}
+@media (min-width: 768px) {
+  fieldset.grid {
+    /* 11rem lets all five graph controls share one row at 1280px, where
+       Pico's fluid typography has grown 1rem to 20px. */
+    grid-template-columns: repeat(auto-fit, minmax(0, 11rem));
+  }
 }
 
 .overflow-auto {
   overflow: auto;
+}
+.nowrap {
+  white-space: nowrap;
+}
+
+/* On narrow screens the authors table scrolls sideways instead of crushing
+   the alias input and wrapping names. */
+.authors-table {
+  th,
+  td {
+    white-space: nowrap;
+  }
+  input[type="text"] {
+    min-width: 10rem;
+  }
 }
 .dimmed {
   opacity: 0.5;
@@ -96,6 +128,20 @@
 .commit-body {
   white-space: pre-wrap;
 }
+/* When the commit table scrolls sideways the detail row would be as wide as the
+   table; pinning its content to the left edge keeps the text readable without
+   scrolling back and forth. */
+.commit-detail > td > * {
+  position: sticky;
+  left: 0;
+  max-width: calc(100vw - 2.5rem);
+}
+/* Long hashes and file paths may break anywhere, so the pinned detail content
+   never forces a width beyond the viewport. */
+.commit-detail code,
+.commit-detail table td:first-child {
+  overflow-wrap: anywhere;
+}
 .rename {
   display: block;
   color: var(--pico-muted-color);
@@ -105,9 +151,24 @@
   margin-inline-start: 1rem;
 }
 
-/* The dataset summary in the nav does not fit beside the links on phones. */
-@media (max-width: 575px) {
+/* Nav items never wrap internally; the summary shrinks with an ellipsis instead,
+   disappears when it would be squeezed to nothing, and on phones the link labels
+   go too, leaving the icons (the links keep title attributes). */
+nav li {
+  white-space: nowrap;
+}
+.nav-summary {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--pico-muted-color);
+}
+@media (max-width: 767px) {
   .nav-summary {
+    display: none;
+  }
+}
+@media (max-width: 575px) {
+  .nav-label {
     display: none;
   }
 }

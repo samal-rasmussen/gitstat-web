@@ -261,10 +261,29 @@ right (a theme switch shows up on the next render).
 
 ## Styling and icons
 
-Pico provides the look; `css/app.css` (target: about 100 lines) is limited to chart
+Pico provides the look; `css/app.css` (target: about 150 lines) is limited to chart
 containers, the dropzone, commit detail rows, the icon classes and small fixes. Layout is
-`container-fluid` with a max width; tables sit in `overflow-auto` wrappers; the nav's
-dataset summary is hidden below Pico's small breakpoint. No external fonts.
+`container-fluid` with a max width; tables sit in `overflow-auto` wrappers. No external
+fonts.
+
+On wide screens content keeps a sensible width instead of stretching across the whole
+container: the form-and-prose views (upload, about, config) put a `.narrow` class on
+their section (max-width 42rem), and `fieldset.grid` control rows cap their columns at
+11rem so selects and buttons stay hand-sized (sized so all five graph controls share one
+row at 1280px, where Pico's fluid typography has grown 1rem to 20px). The data views
+(charts, commits table) use the full width, and the chart containers grow taller with
+the viewport (`clamp` heights): compact on phones, up to 30rem (line) and 24rem (pie)
+on wide screens.
+
+Responsive behaviour is nowrap-and-shed rather than wrap: nav items never wrap internally
+(the dataset summary ellipsizes, disappears below 768px, and below 576px the nav link
+labels go too, leaving the icons with `title` tooltips); date and author cells in the
+commits table and all cells in the config authors table are `nowrap`, so on narrow
+screens those tables scroll sideways in their `overflow-auto` wrappers instead of growing
+tall rows. The commit detail row is the exception: its content is pinned with
+`position: sticky; left: 0` and capped near the viewport width, so commit messages and
+the file table stay readable without horizontal scrolling even when the surrounding
+table scrolls.
 
 Icons are ten individual SVGs copied from [Lucide](https://lucide.dev) (ISC, see
 `assets/icons/LICENSE`) into `assets/icons/`, applied as
