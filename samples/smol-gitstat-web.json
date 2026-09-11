@@ -2,231 +2,6766 @@
   "version": "1.0.0",
   "projects": [
     {
-      "name": "alpha",
+      "name": "gitstat-web",
       "commits": [
-        {
-          "hash": "a01",
-          "author": { "name": "Alice", "time": "2020-12-28T10:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2020-12-28T10:00:00+00:00" },
-          "message": "Initial commit\n\nFirst paragraph of the body.\n\nSecond paragraph of the body.",
-          "isMerge": false,
-          "files": [
-            {
-              "filepath": "src/main.js",
-              "isBinary": false,
-              "additions": 100,
-              "deletions": 0,
-              "rawAdditions": 100,
-              "rawDeletions": 0
-            },
-            {
-              "filepath": "README.md",
-              "isBinary": false,
-              "additions": 20,
-              "deletions": 0,
-              "rawAdditions": 20,
-              "rawDeletions": 0
-            }
-          ]
-        },
-        {
-          "hash": "a02",
-          "author": { "name": "Alice", "time": "2020-12-29T10:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2020-12-29T10:00:00+00:00" },
-          "message": "Add styles",
-          "isMerge": false,
-          "files": [
-            { "filepath": "css/app.css", "isBinary": false, "additions": 50, "deletions": 2 }
-          ]
-        },
-        {
-          "hash": "a03",
-          "author": { "name": "Bob", "time": "2020-12-30T08:00:00+00:00" },
-          "committer": { "name": "Bob", "time": "2020-12-30T11:00:00+00:00" },
-          "message": "Fix bug",
-          "isMerge": false,
-          "files": [
-            { "filepath": "src/main.js", "isBinary": false, "additions": 5, "deletions": 3 }
-          ]
-        },
-        {
-          "hash": "a04",
-          "author": { "name": "Bobby Tables", "time": "2020-12-31T09:00:00+00:00" },
-          "committer": { "name": "Bobby Tables", "time": "2020-12-31T09:00:00+00:00" },
-          "message": "Refactor",
-          "isMerge": false,
-          "files": [
-            { "filepath": "src/util.js", "isBinary": false, "additions": 30, "deletions": 10 }
-          ]
-        },
-        {
-          "hash": "a05",
-          "author": { "name": "Alice", "time": "2021-01-01T10:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2021-01-01T10:00:00+00:00" },
-          "message": "New year cleanup",
-          "isMerge": false,
-          "files": [
-            { "filepath": "src/main.js", "isBinary": false, "additions": 1, "deletions": 1 }
-          ]
-        },
-        {
-          "hash": "a06",
-          "author": { "name": "Alice", "time": "2021-01-04T10:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2021-01-04T10:00:00+00:00" },
-          "message": "Add logo",
-          "isMerge": false,
-          "files": [
-            { "filepath": "assets/logo.png", "isBinary": true, "additions": 0, "deletions": 0 },
-            { "filepath": "src/main.js", "isBinary": false, "additions": 2, "deletions": 0 }
-          ]
-        },
-        {
-          "hash": "a07",
-          "author": { "name": "Bob", "time": "2021-01-05T10:00:00+00:00" },
-          "committer": { "name": "Bob", "time": "2021-01-05T10:00:00+00:00" },
-          "message": "Rename module",
-          "isMerge": false,
-          "files": [
-            {
-              "filepath": "src/{old => new}/mod.js",
-              "isBinary": false,
-              "additions": 4,
-              "deletions": 1
-            }
-          ]
-        },
-        {
-          "hash": "a08",
-          "author": { "name": "Alice", "time": "2021-01-05T14:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2021-01-05T14:00:00+00:00" },
-          "message": "Merge branch 'feature'",
-          "isMerge": true,
-          "files": []
-        },
-        {
-          "hash": "a09",
-          "author": { "name": "Bob", "time": "2021-01-06T10:00:00+00:00" },
-          "committer": { "name": "Bob", "time": "2021-01-06T10:00:00+00:00" },
-          "message": "Add tests",
-          "isMerge": false,
-          "files": [
-            { "filepath": "tests/main.test.js", "isBinary": false, "additions": 40, "deletions": 0 }
-          ]
-        },
-        {
-          "hash": "a10",
-          "author": { "name": "Alice", "time": "2021-01-07T10:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2021-01-07T10:00:00+00:00" },
-          "message": "Docs only",
-          "isMerge": false,
-          "files": [
-            { "filepath": "docs/guide.md", "isBinary": false, "additions": 15, "deletions": 0 }
-          ]
-        }
-      ]
+{
+  "hash": "83ce73884663c97aa9590bbd6775b2a997364462",
+  "author": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T12:50:00+01:00"
+  },
+  "committer": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T12:50:00+01:00"
+  },
+  "message": "Phase 4: the data views\n\nGraphs: chart modules (palette, line, pie) with WeakMap instance caches,\ntheme colours from Pico's custom properties and animation off above a few\nthousand points; controls bound to the URL query with defaults from design\n7.4; stacked line chart (stacking off on negatives), pie chart and summary\ntable over the same date-filtered subset, with Others marked and an\nempty-state message. The summary table renders as an innerHTML swap - one\nrow per author is far too many for x-for.\n\nCommits: sort, page size and page in the URL (sort and size changes reset\nthe page), table with dimmed excluded rows and merge icon, expandable\ndetail row with hash, project, exclude checkbox, plain-text body and a\nfile table with old rename paths and binary markers. The row stays open\nacross the rebuild an exclusion triggers.\n\nConfig: date basis, merge-commit checkbox with help text, include/exclude\npattern textareas with invalid regexes flagged, the author table with\nmerge-into datalist and exclude checkboxes (delegated events over an\ninnerHTML tbody), the excluded-commits list and reset.\n\nPerf against the 16 MB React sample (13,185 commits): series building now\nfolds into Others before allocating values arrays and maps commits to\nbuckets with a pointer walk instead of per-commit calendar math, and the\nIntl label formatters are cached; group+totals+series is 2-8 ms for every\nunit, so a control change re-renders well under the 100 ms target.\n\nDesign 13 corrected: the local Alpine sample needs a full clone, not a\nblob-less one - git log --numstat fetches every blob lazily otherwise.",
+  "files": [
+    {
+      "filepath": "css/app.css",
+      "isBinary": false,
+      "additions": 52,
+      "deletions": 0,
+      "rawAdditions": 52,
+      "rawDeletions": 0
     },
     {
-      "name": "beta",
-      "commits": [
-        {
-          "hash": "b01",
-          "author": { "name": "Bob", "time": "2020-12-27T10:00:00+00:00" },
-          "committer": { "name": "Bob", "time": "2020-12-27T10:00:00+00:00" },
-          "message": "Start beta",
-          "isMerge": false,
-          "files": [
-            { "filepath": "index.html", "isBinary": false, "additions": 30, "deletions": 0 }
-          ]
-        },
-        {
-          "hash": "b02",
-          "author": { "name": "Alice", "time": "2020-12-28T12:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2020-12-28T12:00:00+00:00" },
-          "message": "Wire up",
-          "isMerge": false,
-          "files": [{ "filepath": "js/app.js", "isBinary": false, "additions": 60, "deletions": 0 }]
-        },
-        {
-          "hash": "b03",
-          "author": { "name": "Bobby Tables", "time": "2021-01-02T10:00:00+00:00" },
-          "committer": { "name": "Bobby Tables", "time": "2021-01-02T10:00:00+00:00" },
-          "message": "Weekend hack",
-          "isMerge": false,
-          "files": [{ "filepath": "js/app.js", "isBinary": false, "additions": 25, "deletions": 5 }]
-        },
-        {
-          "hash": "b04",
-          "author": { "name": "Alice", "time": "2021-01-03T10:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2021-01-03T10:00:00+00:00" },
-          "message": "Polish",
-          "isMerge": false,
-          "files": [
-            { "filepath": "css/site.css", "isBinary": false, "additions": 10, "deletions": 4 }
-          ]
-        },
-        {
-          "hash": "b05",
-          "author": { "name": "Bob", "time": "2021-01-04T15:00:00+00:00" },
-          "committer": { "name": "Bob", "time": "2021-01-04T15:00:00+00:00" },
-          "message": "Move app to core",
-          "isMerge": false,
-          "files": [
-            {
-              "filepath": "js/core.js",
-              "renameOf": "js/app.js",
-              "isBinary": false,
-              "additions": 8,
-              "deletions": 2
-            }
-          ]
-        },
-        {
-          "hash": "b06",
-          "author": { "name": "Alice", "time": "2021-01-08T10:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2021-01-08T10:00:00+00:00" },
-          "message": "Data file",
-          "isMerge": false,
-          "files": [
-            { "filepath": "data/stats.csv", "isBinary": false, "additions": 100, "deletions": 0 }
-          ]
-        },
-        {
-          "hash": "b07",
-          "author": { "name": "Bob", "time": "2021-01-09T10:00:00+00:00" },
-          "committer": { "name": "Bob", "time": "2021-01-09T10:00:00+00:00" },
-          "message": "No extension",
-          "isMerge": false,
-          "files": [{ "filepath": "Makefile", "isBinary": false, "additions": 12, "deletions": 3 }]
-        },
-        {
-          "hash": "b08",
-          "author": { "name": "Alice", "time": "2021-02-01T10:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2021-02-01T10:00:00+00:00" },
-          "message": "February work",
-          "isMerge": false,
-          "files": [{ "filepath": "js/app.js", "isBinary": false, "additions": 9, "deletions": 9 }]
-        },
-        {
-          "hash": "b09",
-          "author": { "name": "Bob", "time": "2021-02-02T10:00:00+00:00" },
-          "committer": { "name": "Bob", "time": "2021-02-02T10:00:00+00:00" },
-          "message": "Cleanup",
-          "isMerge": false,
-          "files": [
-            { "filepath": "js/core.js", "isBinary": false, "additions": 0, "deletions": 20 }
-          ]
-        },
-        {
-          "hash": "b10",
-          "author": { "name": "Alice", "time": "2021-02-03T10:00:00+00:00" },
-          "committer": { "name": "Alice", "time": "2021-02-03T10:00:00+00:00" },
-          "message": "Mixed",
-          "isMerge": false,
-          "files": [
-            { "filepath": "js/app.js", "isBinary": false, "additions": 3, "deletions": 1 },
-            { "filepath": "css/site.css", "isBinary": false, "additions": 2, "deletions": 2 }
-          ]
-        }
+      "filepath": "design.md",
+      "isBinary": false,
+      "additions": 5,
+      "deletions": 2,
+      "rawAdditions": 5,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "js/app.js",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 0,
+      "rawAdditions": 6,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/charts/line.js",
+      "isBinary": false,
+      "additions": 87,
+      "deletions": 0,
+      "rawAdditions": 87,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/charts/palette.js",
+      "isBinary": false,
+      "additions": 50,
+      "deletions": 0,
+      "rawAdditions": 50,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/charts/pie.js",
+      "isBinary": false,
+      "additions": 69,
+      "deletions": 0,
+      "rawAdditions": 69,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/compute/series.js",
+      "isBinary": false,
+      "additions": 51,
+      "deletions": 22,
+      "rawAdditions": 51,
+      "rawDeletions": 22
+    },
+    {
+      "filepath": "js/compute/time.js",
+      "isBinary": false,
+      "additions": 18,
+      "deletions": 7,
+      "rawAdditions": 18,
+      "rawDeletions": 7
+    },
+    {
+      "filepath": "js/views/commits.js",
+      "isBinary": false,
+      "additions": 116,
+      "deletions": 0,
+      "rawAdditions": 116,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/views/config.js",
+      "isBinary": false,
+      "additions": 151,
+      "deletions": 0,
+      "rawAdditions": 151,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/views/graphs.js",
+      "isBinary": false,
+      "additions": 162,
+      "deletions": 0,
+      "rawAdditions": 162,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "views/commits.html",
+      "isBinary": false,
+      "additions": 111,
+      "deletions": 1,
+      "rawAdditions": 111,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "views/config.html",
+      "isBinary": false,
+      "additions": 102,
+      "deletions": 1,
+      "rawAdditions": 102,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "views/graphs.html",
+      "isBinary": false,
+      "additions": 58,
+      "deletions": 1,
+      "rawAdditions": 58,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "7807bf2faaa68071ba3d897268a1192d0468f92b",
+  "author": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T12:27:56+01:00"
+  },
+  "committer": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T12:27:56+01:00"
+  },
+  "message": "Phase 3: upload and persistence\n\nIndexedDB dataset persistence (js/db.js), the non-reactive dataset holder\n(js/dataset.js), the config store with localStorage persistence and the\nrebuild effect (js/config.js), the real boot sequence with the router guard\nreading the dataset, and the upload view: dropzone/file input with a\nprogress state, shallow validation with inline errors, sample loader,\nloaded-data card and clear button, plus the nav summary string.\n\nA copy of the small fixture stands in as samples/smol-gitstat-web.json\nuntil phase 5. Placeholder views for graphs, commits and config so\nnavigation works before phase 4. Design 7.1/7.3 amended: $store.app gains\nsizeBytes and the stored record is { data, sizeBytes }.\n\nVerified in the browser: sample load, reload persistence, clear + guard\nredirect, malformed-file errors. The 16 MB React sample: JSON.parse 35 ms,\ndb.set 47 ms, db.get 46 ms.",
+  "files": [
+    {
+      "filepath": "css/app.css",
+      "isBinary": false,
+      "additions": 26,
+      "deletions": 0,
+      "rawAdditions": 26,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "design.md",
+      "isBinary": false,
+      "additions": 5,
+      "deletions": 5,
+      "rawAdditions": 5,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "js/app.js",
+      "isBinary": false,
+      "additions": 17,
+      "deletions": 7,
+      "rawAdditions": 17,
+      "rawDeletions": 7
+    },
+    {
+      "filepath": "js/config.js",
+      "isBinary": false,
+      "additions": 98,
+      "deletions": 0,
+      "rawAdditions": 98,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/dataset.js",
+      "isBinary": false,
+      "additions": 87,
+      "deletions": 0,
+      "rawAdditions": 87,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/db.js",
+      "isBinary": false,
+      "additions": 70,
+      "deletions": 0,
+      "rawAdditions": 70,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/globals.d.ts",
+      "isBinary": false,
+      "additions": 23,
+      "deletions": 0,
+      "rawAdditions": 23,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/views/upload.js",
+      "isBinary": false,
+      "additions": 153,
+      "deletions": 0,
+      "rawAdditions": 153,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "samples/smol-gitstat-web.json",
+      "isBinary": false,
+      "additions": 233,
+      "deletions": 0,
+      "rawAdditions": 233,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "views/commits.html",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 0,
+      "rawAdditions": 3,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "views/config.html",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 0,
+      "rawAdditions": 3,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "views/graphs.html",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 0,
+      "rawAdditions": 3,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "views/upload.html",
+      "isBinary": false,
+      "additions": 45,
+      "deletions": 1,
+      "rawAdditions": 45,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "41605be0040e4ba5234a5b09eb3dc4670cd10f57",
+  "author": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T12:14:14+01:00"
+  },
+  "committer": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T12:14:14+01:00"
+  },
+  "message": "Phase 2: compute layer\n\nTypes from design 6.2, the hand-written fixture, and the pure compute\nmodules: time (local-time calendar math, Monday weeks), extend (aliases,\nexclusions, rename normalisation, regex filters, filtered totals), group\n(author/project/filetype with per-extension splitting), aggregate (the\nfive aggregations, totals and averages) and series (zero-filled buckets\nwith Others folding above 2000 points). 48 unit tests, including router\nquery parsing and DST transitions, run with node --test.\n\nAdds @types/node so tsc understands the node: imports in the tests, and\namends design 12 accordingly.\n\nBenchmark (not committed): extendCommits over old/static/react.json,\n13185 commits, best of five runs 48 ms — well under the 1 s target.",
+  "files": [
+    {
+      "filepath": "design.md",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 1,
+      "rawAdditions": 3,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "js/compute/aggregate.js",
+      "isBinary": false,
+      "additions": 43,
+      "deletions": 0,
+      "rawAdditions": 43,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/compute/extend.js",
+      "isBinary": false,
+      "additions": 130,
+      "deletions": 0,
+      "rawAdditions": 130,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/compute/group.js",
+      "isBinary": false,
+      "additions": 77,
+      "deletions": 0,
+      "rawAdditions": 77,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/compute/series.js",
+      "isBinary": false,
+      "additions": 65,
+      "deletions": 0,
+      "rawAdditions": 65,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/compute/time.js",
+      "isBinary": false,
+      "additions": 137,
+      "deletions": 0,
+      "rawAdditions": 137,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/types.d.ts",
+      "isBinary": false,
+      "additions": 74,
+      "deletions": 0,
+      "rawAdditions": 74,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "package-lock.json",
+      "isBinary": false,
+      "additions": 18,
+      "deletions": 0,
+      "rawAdditions": 18,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "package.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "tests/fixtures/small.json",
+      "isBinary": false,
+      "additions": 233,
+      "deletions": 0,
+      "rawAdditions": 233,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "tests/unit/aggregate.test.js",
+      "isBinary": false,
+      "additions": 71,
+      "deletions": 0,
+      "rawAdditions": 71,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "tests/unit/extend.test.js",
+      "isBinary": false,
+      "additions": 194,
+      "deletions": 0,
+      "rawAdditions": 194,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "tests/unit/group.test.js",
+      "isBinary": false,
+      "additions": 91,
+      "deletions": 0,
+      "rawAdditions": 91,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "tests/unit/router.test.js",
+      "isBinary": false,
+      "additions": 47,
+      "deletions": 0,
+      "rawAdditions": 47,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "tests/unit/series.test.js",
+      "isBinary": false,
+      "additions": 118,
+      "deletions": 0,
+      "rawAdditions": 118,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "tests/unit/time.test.js",
+      "isBinary": false,
+      "additions": 107,
+      "deletions": 0,
+      "rawAdditions": 107,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "tsconfig.json",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 1,
+      "rawAdditions": 2,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "7684020675927893a50fb7413ab67f6d16ece981",
+  "author": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T11:46:25+01:00"
+  },
+  "committer": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T12:00:21+01:00"
+  },
+  "message": "Phase 1: application shell\n\nAn empty but real application: vendored Alpine, Chart.js and Pico, hash\nrouter with the no-data guard, the x-view directive, boot sequence, nav\nwith Lucide icons, favicon, about and placeholder upload views, and the\ncheck/lint/fmt tooling.\n\nDesign amendments from implementation: exact vendored versions, x-data\non body (Alpine only initialises x-data trees), per-icon CSS classes\n(url() in a custom property resolves against the stylesheet), oxfmt's\nreal exclude syntax, and esModuleInterop plus DOM.Iterable in tsconfig.",
+  "files": [
+    {
+      "filepath": ".gitignore",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 0,
+      "rawAdditions": 6,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/favicon.svg",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 0,
+      "rawAdditions": 6,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/LICENSE",
+      "isBinary": false,
+      "additions": 39,
+      "deletions": 0,
+      "rawAdditions": 39,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/chart-line.svg",
+      "isBinary": false,
+      "additions": 16,
+      "deletions": 0,
+      "rawAdditions": 16,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/chevron-right.svg",
+      "isBinary": false,
+      "additions": 15,
+      "deletions": 0,
+      "rawAdditions": 15,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/git-commit-horizontal.svg",
+      "isBinary": false,
+      "additions": 17,
+      "deletions": 0,
+      "rawAdditions": 17,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/git-merge.svg",
+      "isBinary": false,
+      "additions": 17,
+      "deletions": 0,
+      "rawAdditions": 17,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/info.svg",
+      "isBinary": false,
+      "additions": 17,
+      "deletions": 0,
+      "rawAdditions": 17,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/rotate-ccw.svg",
+      "isBinary": false,
+      "additions": 16,
+      "deletions": 0,
+      "rawAdditions": 16,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/settings.svg",
+      "isBinary": false,
+      "additions": 16,
+      "deletions": 0,
+      "rawAdditions": 16,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/trash-2.svg",
+      "isBinary": false,
+      "additions": 19,
+      "deletions": 0,
+      "rawAdditions": 19,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/upload.svg",
+      "isBinary": false,
+      "additions": 17,
+      "deletions": 0,
+      "rawAdditions": 17,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/x.svg",
+      "isBinary": false,
+      "additions": 16,
+      "deletions": 0,
+      "rawAdditions": 16,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "css/app.css",
+      "isBinary": false,
+      "additions": 46,
+      "deletions": 0,
+      "rawAdditions": 46,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "design.md",
+      "isBinary": false,
+      "additions": 24,
+      "deletions": 15,
+      "rawAdditions": 24,
+      "rawDeletions": 15
+    },
+    {
+      "filepath": "index.html",
+      "isBinary": false,
+      "additions": 42,
+      "deletions": 0,
+      "rawAdditions": 42,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/app.js",
+      "isBinary": false,
+      "additions": 25,
+      "deletions": 0,
+      "rawAdditions": 25,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/globals.d.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/router.js",
+      "isBinary": false,
+      "additions": 104,
+      "deletions": 0,
+      "rawAdditions": 104,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "js/view.js",
+      "isBinary": false,
+      "additions": 45,
+      "deletions": 0,
+      "rawAdditions": 45,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "package-lock.json",
+      "isBinary": false,
+      "additions": 1458,
+      "deletions": 0,
+      "rawAdditions": 1458,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "package.json",
+      "isBinary": false,
+      "additions": 24,
+      "deletions": 0,
+      "rawAdditions": 24,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "tsconfig.json",
+      "isBinary": false,
+      "additions": 14,
+      "deletions": 0,
+      "rawAdditions": 14,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "vendor/alpine.esm.d.ts",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 0,
+      "rawAdditions": 4,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "vendor/alpine.esm.js",
+      "isBinary": false,
+      "additions": 4347,
+      "deletions": 0,
+      "rawAdditions": 4347,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "vendor/chart.umd.js",
+      "isBinary": false,
+      "additions": 15,
+      "deletions": 0,
+      "rawAdditions": 15,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "vendor/pico.min.css",
+      "isBinary": false,
+      "additions": 5,
+      "deletions": 0,
+      "rawAdditions": 5,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "views/about.html",
+      "isBinary": false,
+      "additions": 20,
+      "deletions": 0,
+      "rawAdditions": 20,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "views/upload.html",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 0,
+      "rawAdditions": 3,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "814a098b3bd67ff771c3529ddad566a5a9692165",
+  "author": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T11:34:03+01:00"
+  },
+  "committer": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T11:34:03+01:00"
+  },
+  "message": "Add implementation plan in plan.md",
+  "files": [
+    {
+      "filepath": "plan.md",
+      "isBinary": false,
+      "additions": 186,
+      "deletions": 0,
+      "rawAdditions": 186,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "65ffc6dd72e05dcf58afa976858591aee82ad358",
+  "author": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T11:29:41+01:00"
+  },
+  "committer": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-11T11:29:41+01:00"
+  },
+  "message": "Add new project design in design.md",
+  "files": [
+    {
+      "filepath": "design.md",
+      "isBinary": false,
+      "additions": 652,
+      "deletions": 0,
+      "rawAdditions": 652,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "ec7ff97796df037a3a2b3106afbd9c97fd27600d",
+  "author": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-10T16:00:43+01:00"
+  },
+  "committer": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-10T16:00:43+01:00"
+  },
+  "message": "Move existing project to \"old\" subfolder",
+  "files": [
+    {
+      "filepath": "old/.babelrc",
+      "renameOf": ".babelrc",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/.browserslist",
+      "renameOf": ".browserslist",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/.editorconfig",
+      "renameOf": ".editorconfig",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/.eslintrc.js",
+      "renameOf": ".eslintrc.js",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/.gitignore",
+      "renameOf": ".gitignore",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/.prettierrc.js",
+      "renameOf": ".prettierrc.js",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/ARCHITECTURE.md",
+      "renameOf": "ARCHITECTURE.md",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/LICENSE",
+      "renameOf": "LICENSE",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/README.md",
+      "renameOf": "README.md",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/about.svg",
+      "renameOf": "assets/icons/about.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/chart.svg",
+      "renameOf": "assets/icons/chart.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/collapse.svg",
+      "renameOf": "assets/icons/collapse.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/commit.svg",
+      "renameOf": "assets/icons/commit.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/config.svg",
+      "renameOf": "assets/icons/config.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/cross.svg",
+      "renameOf": "assets/icons/cross.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/double-arrow-left.svg",
+      "renameOf": "assets/icons/double-arrow-left.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/home.svg",
+      "renameOf": "assets/icons/home.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/merge.svg",
+      "renameOf": "assets/icons/merge.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/overview.svg",
+      "renameOf": "assets/icons/overview.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/plus.svg",
+      "renameOf": "assets/icons/plus.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/icons/upload.svg",
+      "renameOf": "assets/icons/upload.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/assets/logo.svg",
+      "renameOf": "assets/logo.svg",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/now.json",
+      "renameOf": "now.json",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/package-lock.json",
+      "renameOf": "package-lock.json",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/package.json",
+      "renameOf": "package.json",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/Addition.tsx",
+      "renameOf": "src/components/Addition.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/Author.tsx",
+      "renameOf": "src/components/Author.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/ControlsBar.tsx",
+      "renameOf": "src/components/ControlsBar.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/Deletion.tsx",
+      "renameOf": "src/components/Deletion.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/H1.tsx",
+      "renameOf": "src/components/H1.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/H2.tsx",
+      "renameOf": "src/components/H2.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/H3.tsx",
+      "renameOf": "src/components/H3.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/Loader.tsx",
+      "renameOf": "src/components/Loader.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/LoadingDots.tsx",
+      "renameOf": "src/components/LoadingDots.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/Logo.tsx",
+      "renameOf": "src/components/Logo.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/NL2BR.tsx",
+      "renameOf": "src/components/NL2BR.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/NoWrap.tsx",
+      "renameOf": "src/components/NoWrap.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/Note.tsx",
+      "renameOf": "src/components/Note.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/Number.tsx",
+      "renameOf": "src/components/Number.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/ShortDateTime.tsx",
+      "renameOf": "src/components/ShortDateTime.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/SubHeader.tsx",
+      "renameOf": "src/components/SubHeader.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/buttons/ButtonGroup.tsx",
+      "renameOf": "src/components/buttons/ButtonGroup.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/buttons/DefaultButton.tsx",
+      "renameOf": "src/components/buttons/DefaultButton.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/buttons/HoverButton.tsx",
+      "renameOf": "src/components/buttons/HoverButton.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/buttons/IconLink.tsx",
+      "renameOf": "src/components/buttons/IconLink.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/charts/LineChart.tsx",
+      "renameOf": "src/components/charts/LineChart.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/charts/PieChart.tsx",
+      "renameOf": "src/components/charts/PieChart.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/ClearableInput.tsx",
+      "renameOf": "src/components/form/ClearableInput.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/DatePicker.tsx",
+      "renameOf": "src/components/form/DatePicker.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/FormError.tsx",
+      "renameOf": "src/components/form/FormError.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/FormGroup.tsx",
+      "renameOf": "src/components/form/FormGroup.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/Input.tsx",
+      "renameOf": "src/components/form/Input.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/InputError.tsx",
+      "renameOf": "src/components/form/InputError.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/Select.tsx",
+      "renameOf": "src/components/form/Select.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/StyledInput.tsx",
+      "renameOf": "src/components/form/StyledInput.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/checkbox/CheckIcon.tsx",
+      "renameOf": "src/components/form/checkbox/CheckIcon.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/checkbox/Checkbox.tsx",
+      "renameOf": "src/components/form/checkbox/Checkbox.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/checkbox/HiddenCheckbox.tsx",
+      "renameOf": "src/components/form/checkbox/HiddenCheckbox.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/form/checkbox/StyledCheckbox.tsx",
+      "renameOf": "src/components/form/checkbox/StyledCheckbox.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/icons/Icon.tsx",
+      "renameOf": "src/components/icons/Icon.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/icons/MergeIcon.tsx",
+      "renameOf": "src/components/icons/MergeIcon.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/icons/PlusIcon.tsx",
+      "renameOf": "src/components/icons/PlusIcon.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/side-menu/MenuContainer.tsx",
+      "renameOf": "src/components/side-menu/MenuContainer.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/side-menu/MenuItem.tsx",
+      "renameOf": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/side-menu/MenuItemLink.tsx",
+      "renameOf": "src/components/side-menu/MenuItemLink.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/side-menu/MenuMinimizeButton.tsx",
+      "renameOf": "src/components/side-menu/MenuMinimizeButton.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/side-menu/SideMenu.tsx",
+      "renameOf": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/table/Pagination.tsx",
+      "renameOf": "src/components/table/Pagination.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/components/table/Table.tsx",
+      "renameOf": "src/components/table/Table.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/hooks/useAggregationFn.ts",
+      "renameOf": "src/hooks/useAggregationFn.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/hooks/useExtendedCommits.ts",
+      "renameOf": "src/hooks/useExtendedCommits.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/hooks/useLines.ts",
+      "renameOf": "src/hooks/useLines.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/hooks/usePersistedReducer.ts",
+      "renameOf": "src/hooks/usePersistedReducer.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/hooks/usePrevious.ts",
+      "renameOf": "src/hooks/usePrevious.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/hooks/useRouter.ts",
+      "renameOf": "src/hooks/useRouter.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/hooks/useSlices.ts",
+      "renameOf": "src/hooks/useSlices.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/hooks/useStateWithSessionStorage.ts",
+      "renameOf": "src/hooks/useStateWithSessionStorage.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/hooks/useWindowSize.ts",
+      "renameOf": "src/hooks/useWindowSize.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/index.html",
+      "renameOf": "src/index.html",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/index.tsx",
+      "renameOf": "src/index.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/layouts/MainLayout.tsx",
+      "renameOf": "src/layouts/MainLayout.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/layouts/MessageLayout.tsx",
+      "renameOf": "src/layouts/MessageLayout.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/layouts/PageLayout.tsx",
+      "renameOf": "src/layouts/PageLayout.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/404/NotFoundScreen.tsx",
+      "renameOf": "src/screens/404/NotFoundScreen.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/about/AboutScreen.tsx",
+      "renameOf": "src/screens/about/AboutScreen.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/commits/CollapseAllButton.tsx",
+      "renameOf": "src/screens/commits/CollapseAllButton.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/commits/CommitDetails.tsx",
+      "renameOf": "src/screens/commits/CommitDetails.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/commits/CommitsScreen.tsx",
+      "renameOf": "src/screens/commits/CommitsScreen.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/commits/CommitsTable.tsx",
+      "renameOf": "src/screens/commits/CommitsTable.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/commits/ExcludeCommit.tsx",
+      "renameOf": "src/screens/commits/ExcludeCommit.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/commits/SelectItemCount.tsx",
+      "renameOf": "src/screens/commits/SelectItemCount.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/commits/SelectOrderBy.tsx",
+      "renameOf": "src/screens/commits/SelectOrderBy.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/commits/useExpandableRows.ts",
+      "renameOf": "src/screens/commits/useExpandableRows.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/config/ConfigScreen.tsx",
+      "renameOf": "src/screens/config/ConfigScreen.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/config/ExcludeFilePatterns.tsx",
+      "renameOf": "src/screens/config/ExcludeFilePatterns.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/config/IncludeFilePatterns.tsx",
+      "renameOf": "src/screens/config/IncludeFilePatterns.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/config/IncludeMergeCommits.tsx",
+      "renameOf": "src/screens/config/IncludeMergeCommits.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/config/ResetExcludeCommits.tsx",
+      "renameOf": "src/screens/config/ResetExcludeCommits.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/config/SelectAlias.tsx",
+      "renameOf": "src/screens/config/SelectAlias.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/config/SelectAliases.tsx",
+      "renameOf": "src/screens/config/SelectAliases.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/config/SelectExcludeAuthors.tsx",
+      "renameOf": "src/screens/config/SelectExcludeAuthors.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/config/SelectRealName.tsx",
+      "renameOf": "src/screens/config/SelectRealName.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/graphs/GraphsScreen.tsx",
+      "renameOf": "src/screens/graphs/GraphsScreen.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/graphs/SelectAggregationFn.tsx",
+      "renameOf": "src/screens/graphs/SelectAggregationFn.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/graphs/SelectGroupBy.tsx",
+      "renameOf": "src/screens/graphs/SelectGroupBy.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/graphs/SelectTimeUnit.tsx",
+      "renameOf": "src/screens/graphs/SelectTimeUnit.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/graphs/SummaryTable.tsx",
+      "renameOf": "src/screens/graphs/SummaryTable.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/home/EdgeWarning.tsx",
+      "renameOf": "src/screens/home/EdgeWarning.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/home/HomeScreen.tsx",
+      "renameOf": "src/screens/home/HomeScreen.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/home/SelectSampleProject.tsx",
+      "renameOf": "src/screens/home/SelectSampleProject.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/loading/LoadingScreen.tsx",
+      "renameOf": "src/screens/loading/LoadingScreen.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/upload/DataScreen.tsx",
+      "renameOf": "src/screens/upload/DataScreen.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/upload/UploadDragAndDrop.tsx",
+      "renameOf": "src/screens/upload/UploadDragAndDrop.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/screens/upload/UploadInstructions.tsx",
+      "renameOf": "src/screens/upload/UploadInstructions.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/selectors/authors.ts",
+      "renameOf": "src/selectors/authors.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/selectors/commits.ts",
+      "renameOf": "src/selectors/commits.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/selectors/files.ts",
+      "renameOf": "src/selectors/files.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/stores/Stores.tsx",
+      "renameOf": "src/stores/Stores.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/stores/config/ConfigProvider.tsx",
+      "renameOf": "src/stores/config/ConfigProvider.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/stores/config/configActions.ts",
+      "renameOf": "src/stores/config/configActions.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/stores/config/configReducer.ts",
+      "renameOf": "src/stores/config/configReducer.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/stores/config/configTypes.ts",
+      "renameOf": "src/stores/config/configTypes.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/stores/data/GitDataProvider.tsx",
+      "renameOf": "src/stores/data/GitDataProvider.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/stores/data/dataActions.ts",
+      "renameOf": "src/stores/data/dataActions.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/stores/data/dataReducer.ts",
+      "renameOf": "src/stores/data/dataReducer.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/styles/GlobalStyle.ts",
+      "renameOf": "src/styles/GlobalStyle.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/styles/colors.ts",
+      "renameOf": "src/styles/colors.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/styles/styles.ts",
+      "renameOf": "src/styles/styles.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/types/coloredElement.ts",
+      "renameOf": "src/types/coloredElement.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/types/commits.ts",
+      "renameOf": "src/types/commits.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/types/filters.ts",
+      "renameOf": "src/types/filters.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/types/gitStatData.ts",
+      "renameOf": "src/types/gitStatData.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/types/select.ts",
+      "renameOf": "src/types/select.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/types/svg.ts",
+      "renameOf": "src/types/svg.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/types/util.ts",
+      "renameOf": "src/types/util.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/utils/colorize.ts",
+      "renameOf": "src/utils/colorize.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/utils/markdown.ts",
+      "renameOf": "src/utils/markdown.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/src/utils/time.ts",
+      "renameOf": "src/utils/time.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/static/helm.json",
+      "renameOf": "static/helm.json",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/static/react.json",
+      "renameOf": "static/react.json",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "old/tsconfig.json",
+      "renameOf": "tsconfig.json",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "fcae0d97d1ce87010fd6fdcbb1b1f52862314b88",
+  "author": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-10T16:00:18+01:00"
+  },
+  "committer": {
+    "name": "Sámal Rasmussen",
+    "time": "2026-09-10T16:00:18+01:00"
+  },
+  "message": "Add architecture.md file and update package-lock.json",
+  "files": [
+    {
+      "filepath": "ARCHITECTURE.md",
+      "isBinary": false,
+      "additions": 461,
+      "deletions": 0,
+      "rawAdditions": 461,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "package-lock.json",
+      "isBinary": false,
+      "additions": 13541,
+      "deletions": 10393,
+      "rawAdditions": 13541,
+      "rawDeletions": 10393
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "bb4d0b0cdfdb223c7491a603dc2fc5a04374c73e",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-05-01T23:06:27+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-05-01T23:06:27+02:00"
+  },
+  "message": "fix: updated helm/react samples",
+  "files": [
+    {
+      "filepath": "static/helm.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "static/react.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "9d0d8444d6e022f2fbe63ade8730e420d5eee61a",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T15:03:07+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T15:03:07+02:00"
+  },
+  "message": "fix(config): change \"-table\" to \" page\"",
+  "files": [
+    {
+      "filepath": "src/screens/config/ConfigScreen.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "a71824ab762475f6a247eeb2089340421c1d0b47",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T15:01:04+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T15:01:04+02:00"
+  },
+  "message": "refactor: make storage engine for usePersistedReducer configurable",
+  "files": [
+    {
+      "filepath": "src/hooks/usePersistedReducer.ts",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 3,
+      "rawAdditions": 4,
+      "rawDeletions": 3
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "eee0c4c3b83bc2df9ce4f5c148c81871d649ff49",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T15:00:35+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T15:00:35+02:00"
+  },
+  "message": "fix: improve config setting explanation",
+  "files": [
+    {
+      "filepath": "src/screens/config/ConfigScreen.tsx",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 2,
+      "rawAdditions": 4,
+      "rawDeletions": 2
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "c2644cdf4585b597fb1784f9871cff96f3cc65b4",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T14:09:28+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T14:09:28+02:00"
+  },
+  "message": "fix: use monospace font in summary table #21",
+  "files": [
+    {
+      "filepath": "src/components/Addition.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/Deletion.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/Number.tsx",
+      "isBinary": false,
+      "additions": 14,
+      "deletions": 0,
+      "rawAdditions": 14,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/index.html",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/graphs/SummaryTable.tsx",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 3,
+      "rawAdditions": 7,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/styles/GlobalStyle.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/utils/number.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 6,
+      "rawAdditions": 0,
+      "rawDeletions": 6
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "07828cb808ea35aed3659a2abc403071d5bd789e",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T11:59:55+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T11:59:55+02:00"
+  },
+  "message": "fix(commits): add spacing when commit description is empty",
+  "files": [
+    {
+      "filepath": "src/screens/commits/CommitDetails.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 1,
+      "rawAdditions": 3,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "528d92df9b33ab4f0daa752269ce533efa7abbcb",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T11:29:36+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T11:29:36+02:00"
+  },
+  "message": "refactor: change default export configuration",
+  "files": [
+    {
+      "filepath": ".eslintrc.js",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 8,
+      "rawAdditions": 6,
+      "rawDeletions": 8
+    },
+    {
+      "filepath": "src/components/Author.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/Loader.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/Logo.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/NL2BR.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/ShortDateTime.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/buttons/DefaultButton.tsx",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 12,
+      "rawAdditions": 8,
+      "rawDeletions": 12
+    },
+    {
+      "filepath": "src/components/buttons/HoverButton.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 5,
+      "rawAdditions": 3,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/components/charts/LineChart.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/charts/PieChart.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/form/ClearableInput.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 5,
+      "rawAdditions": 3,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/components/form/DatePicker.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/form/FormError.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/form/FormGroup.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/form/Input.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 5,
+      "rawAdditions": 3,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/components/form/InputError.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 4,
+      "rawAdditions": 3,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/form/Select.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/form/StyledInput.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/form/checkbox/Checkbox.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/icons/MergeIcon.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/icons/PlusIcon.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/side-menu/MenuContainer.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 10,
+      "rawAdditions": 2,
+      "rawDeletions": 10
+    },
+    {
+      "filepath": "src/components/side-menu/MenuMinimizeButton.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/table/Pagination.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 5,
+      "rawAdditions": 3,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/layouts/MainLayout.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 4,
+      "rawAdditions": 6,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/layouts/MessageLayout.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 4,
+      "rawAdditions": 6,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/layouts/PageLayout.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 4,
+      "rawAdditions": 6,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/404/NotFoundScreen.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 5,
+      "rawAdditions": 3,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/screens/about/AboutScreen.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/commits/CollapseAllButton.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/commits/CommitsScreen.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/commits/CommitsTable.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/commits/SelectItemCount.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/commits/SelectOrderBy.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/commits/useExpandableRows.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/config/ExcludeFilePatterns.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/config/IncludeFilePatterns.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/config/SelectAlias.tsx",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 6,
+      "rawAdditions": 4,
+      "rawDeletions": 6
+    },
+    {
+      "filepath": "src/screens/config/SelectAliases.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/config/SelectExcludeAuthors.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/config/SelectRealName.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/graphs/GraphsScreen.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 5,
+      "rawAdditions": 3,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/screens/graphs/SelectAggregationFn.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 7,
+      "rawAdditions": 2,
+      "rawDeletions": 7
+    },
+    {
+      "filepath": "src/screens/graphs/SelectGroupBy.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/graphs/SelectTimeUnit.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/graphs/SummaryTable.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/home/EdgeWarning.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/home/HomeScreen.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/home/SelectSampleProject.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/loading/LoadingScreen.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/upload/DataScreen.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/upload/UploadDragAndDrop.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/upload/UploadInstructions.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/stores/Stores.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/stores/config/ConfigProvider.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 2,
+      "rawAdditions": 6,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/stores/data/GitDataProvider.tsx",
+      "isBinary": false,
+      "additions": 13,
+      "deletions": 2,
+      "rawAdditions": 13,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/stores/data/dataReducer.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/utils/colorize.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "0cc226f7629bbb6ac80c893e3835a102c5e64b22",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T11:08:41+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-27T11:08:41+02:00"
+  },
+  "message": "feat: exclude commits by hash #4",
+  "files": [
+    {
+      "filepath": "src/components/Author.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/H3.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/buttons/DefaultButton.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 5,
+      "rawAdditions": 6,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/components/form/DatePicker.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/form/Select.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/form/StyledInput.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/form/checkbox/Checkbox.tsx",
+      "isBinary": false,
+      "additions": 5,
+      "deletions": 4,
+      "rawAdditions": 5,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/form/checkbox/StyledCheckbox.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 2,
+      "rawAdditions": 0,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/icons/PlusIcon.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/side-menu/MenuItemLink.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/hooks/useExtendedCommits.ts",
+      "isBinary": false,
+      "additions": 21,
+      "deletions": 1,
+      "rawAdditions": 21,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/hooks/useSlices.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/commits/CollapseAllButton.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 5,
+      "rawAdditions": 0,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/screens/commits/CommitDetails.tsx",
+      "isBinary": false,
+      "additions": 65,
+      "deletions": 75,
+      "rawAdditions": 65,
+      "rawDeletions": 75
+    },
+    {
+      "filepath": "src/screens/commits/CommitsTable.tsx",
+      "isBinary": false,
+      "additions": 33,
+      "deletions": 33,
+      "rawAdditions": 33,
+      "rawDeletions": 33
+    },
+    {
+      "filepath": "src/screens/commits/ExcludeCommit.tsx",
+      "isBinary": false,
+      "additions": 36,
+      "deletions": 0,
+      "rawAdditions": 36,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/config/ConfigScreen.tsx",
+      "isBinary": false,
+      "additions": 60,
+      "deletions": 53,
+      "rawAdditions": 60,
+      "rawDeletions": 53
+    },
+    {
+      "filepath": "src/screens/config/IncludeMergeCommits.tsx",
+      "isBinary": false,
+      "additions": 5,
+      "deletions": 6,
+      "rawAdditions": 5,
+      "rawDeletions": 6
+    },
+    {
+      "filepath": "src/screens/config/ResetExcludeCommits.tsx",
+      "isBinary": false,
+      "additions": 16,
+      "deletions": 0,
+      "rawAdditions": 16,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/upload/UploadDragAndDrop.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/stores/config/configActions.ts",
+      "isBinary": false,
+      "additions": 24,
+      "deletions": 32,
+      "rawAdditions": 24,
+      "rawDeletions": 32
+    },
+    {
+      "filepath": "src/stores/config/configReducer.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 3,
+      "rawAdditions": 2,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/stores/config/configTypes.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/stores/data/dataActions.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/styles/GlobalStyle.ts",
+      "isBinary": false,
+      "additions": 13,
+      "deletions": 2,
+      "rawAdditions": 13,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/styles/colors.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 6,
+      "rawAdditions": 2,
+      "rawDeletions": 6
+    },
+    {
+      "filepath": "src/styles/styles.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/types/commits.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 0,
+      "rawAdditions": 2,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "1334aa4bfc32e2d3950228a46b48841f1b026f20",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-26T19:47:27+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-26T19:47:27+02:00"
+  },
+  "message": "fix: lighten secondary color to improve contrast",
+  "files": [
+    {
+      "filepath": "src/styles/colors.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "19852b133cfbf2f76509d806f1bdb3dc111a4286",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-26T19:31:12+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-26T19:31:12+02:00"
+  },
+  "message": "fix: make border a little bit more pronounced",
+  "files": [
+    {
+      "filepath": "src/styles/colors.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 3,
+      "rawAdditions": 2,
+      "rawDeletions": 3
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "e80466ec06406a370b9fa768d253132917f4deef",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-26T19:29:39+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-26T19:29:39+02:00"
+  },
+  "message": "fix: show \"exclude authors\" config option as checkbox menu",
+  "files": [
+    {
+      "filepath": "src/components/form/Select.tsx",
+      "isBinary": false,
+      "additions": 148,
+      "deletions": 17,
+      "rawAdditions": 148,
+      "rawDeletions": 17
+    },
+    {
+      "filepath": "src/screens/config/ConfigScreen.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/config/SelectExcludeAuthors.tsx",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 4,
+      "rawAdditions": 7,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/styles/colors.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "ad4db96830fe14310e4f51c82b4cede8d1cf66f1",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-25T17:47:36+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-25T17:47:36+02:00"
+  },
+  "message": "refactor: rename <something>Props to Props and some minor style changes",
+  "files": [
+    {
+      "filepath": "src/components/Addition.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/Author.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/ControlsBar.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/Deletion.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 5,
+      "rawAdditions": 3,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/components/H1.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/H2.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/H3.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/LoadingDots.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/NL2BR.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/NoWrap.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/Note.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/ShortDateTime.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/SubHeader.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/buttons/ButtonGroup.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/buttons/DefaultButton.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/buttons/HoverButton.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/buttons/IconLink.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/buttons/TransparentButton.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 8,
+      "rawAdditions": 0,
+      "rawDeletions": 8
+    },
+    {
+      "filepath": "src/components/charts/LineChart.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 7,
+      "rawAdditions": 2,
+      "rawDeletions": 7
+    },
+    {
+      "filepath": "src/components/charts/PieChart.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 6,
+      "rawAdditions": 6,
+      "rawDeletions": 6
+    },
+    {
+      "filepath": "src/components/form/DatePicker.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 7,
+      "rawAdditions": 2,
+      "rawDeletions": 7
+    },
+    {
+      "filepath": "src/components/form/FormError.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/form/Input.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/form/InputError.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/form/Select.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/form/StyledInput.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/icons/Icon.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/table/Pagination.tsx",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 4,
+      "rawAdditions": 4,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/screens/commits/CollapseAllButton.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 6,
+      "rawAdditions": 6,
+      "rawDeletions": 6
+    },
+    {
+      "filepath": "src/screens/commits/CommitDetails.tsx",
+      "isBinary": false,
+      "additions": 5,
+      "deletions": 5,
+      "rawAdditions": 5,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/screens/commits/CommitsTable.tsx",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 7,
+      "rawAdditions": 7,
+      "rawDeletions": 7
+    },
+    {
+      "filepath": "src/screens/commits/SelectItemCount.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/commits/SelectOrderBy.tsx",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 10,
+      "rawAdditions": 7,
+      "rawDeletions": 10
+    },
+    {
+      "filepath": "src/screens/commits/useExpandableRows.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/config/SelectAliases.tsx",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 5,
+      "rawAdditions": 8,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/screens/config/SelectRealName.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 3,
+      "rawAdditions": 6,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/screens/graphs/SelectAggregationFn.tsx",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 7,
+      "rawAdditions": 7,
+      "rawDeletions": 7
+    },
+    {
+      "filepath": "src/screens/graphs/SelectGroupBy.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 6,
+      "rawAdditions": 3,
+      "rawDeletions": 6
+    },
+    {
+      "filepath": "src/screens/graphs/SelectTimeUnit.tsx",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 7,
+      "rawAdditions": 7,
+      "rawDeletions": 7
+    },
+    {
+      "filepath": "src/screens/graphs/SummaryTable.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/selectors/commits.ts",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 4,
+      "rawAdditions": 4,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/styles/GlobalStyle.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 3,
+      "rawAdditions": 1,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/styles/styles.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/types/form.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 8,
+      "rawAdditions": 0,
+      "rawDeletions": 8
+    },
+    {
+      "filepath": "src/utils/colorize.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "6816d530c5a0255e21250191297a85bb0c8150c6",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-25T17:20:39+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-25T17:20:39+02:00"
+  },
+  "message": "refactor: separate Checkbox components in separate files",
+  "files": [
+    {
+      "filepath": "src/components/form/Checkbox.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 71,
+      "rawAdditions": 0,
+      "rawDeletions": 71
+    },
+    {
+      "filepath": "src/components/form/checkbox/CheckIcon.tsx",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 0,
+      "rawAdditions": 7,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/checkbox/Checkbox.tsx",
+      "isBinary": false,
+      "additions": 30,
+      "deletions": 0,
+      "rawAdditions": 30,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/checkbox/HiddenCheckbox.tsx",
+      "isBinary": false,
+      "additions": 17,
+      "deletions": 0,
+      "rawAdditions": 17,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/checkbox/StyledCheckbox.tsx",
+      "isBinary": false,
+      "additions": 24,
+      "deletions": 0,
+      "rawAdditions": 24,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/config/IncludeMergeCommits.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "f67a8b54d9629e42a56e57dce9623b8f8ba63452",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-25T17:19:51+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-25T17:19:51+02:00"
+  },
+  "message": "refactor: separate MenuContainer from menu",
+  "files": [
+    {
+      "filepath": "src/components/side-menu/MenuContainer.tsx",
+      "isBinary": false,
+      "additions": 23,
+      "deletions": 0,
+      "rawAdditions": 23,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/side-menu/MenuMinimizeButton.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 20,
+      "rawAdditions": 1,
+      "rawDeletions": 20
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "3f1647887b33425aacf8dbe0a3cd823e29035b94",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-25T17:08:14+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-25T17:08:14+02:00"
+  },
+  "message": "refactor: separate MenuItemLink from MenuItem",
+  "files": [
+    {
+      "filepath": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 23,
+      "rawAdditions": 3,
+      "rawDeletions": 23
+    },
+    {
+      "filepath": "src/components/side-menu/MenuItemLink.tsx",
+      "isBinary": false,
+      "additions": 23,
+      "deletions": 0,
+      "rawAdditions": 23,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "8cad422bf18c5c3728eba0237e07ce4759c8d55c",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-04-25T17:07:15+02:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-04-25T17:07:15+02:00"
+  },
+  "message": "fix: update dependencies",
+  "files": [
+    {
+      "filepath": "package-lock.json",
+      "isBinary": false,
+      "additions": 2003,
+      "deletions": 1627,
+      "rawAdditions": 2003,
+      "rawDeletions": 1627
+    },
+    {
+      "filepath": "package.json",
+      "isBinary": false,
+      "additions": 38,
+      "deletions": 38,
+      "rawAdditions": 38,
+      "rawDeletions": 38
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "8c4e0eff321c4591d1a687b45633a438f13cbc2e",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-02-02T20:20:50+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-02-02T20:59:30+01:00"
+  },
+  "message": "feat: display file renames",
+  "files": [
+    {
+      "filepath": "src/hooks/useExtendedCommits.ts",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 9,
+      "rawAdditions": 7,
+      "rawDeletions": 9
+    },
+    {
+      "filepath": "src/screens/commits/CommitDetails.tsx",
+      "isBinary": false,
+      "additions": 11,
+      "deletions": 2,
+      "rawAdditions": 11,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/commits/CommitsTable.tsx",
+      "isBinary": false,
+      "additions": 41,
+      "deletions": 36,
+      "rawAdditions": 41,
+      "rawDeletions": 36
+    },
+    {
+      "filepath": "src/selectors/files.ts",
+      "isBinary": false,
+      "additions": 42,
+      "deletions": 22,
+      "rawAdditions": 42,
+      "rawDeletions": 22
+    },
+    {
+      "filepath": "src/types/gitStatData.ts",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 6,
+      "rawAdditions": 8,
+      "rawDeletions": 6
+    },
+    {
+      "filepath": "static/helm.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "static/react.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "7ca5c4470afa5a4f709c8d82e13e8b2b26384e67",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-02-02T11:44:58+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-02-02T12:01:41+01:00"
+  },
+  "message": "fix: add slowness warning to MS Edge users on homepage",
+  "files": [
+    {
+      "filepath": "src/screens/home/EdgeWarning.tsx",
+      "isBinary": false,
+      "additions": 29,
+      "deletions": 0,
+      "rawAdditions": 29,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/home/HomeScreen.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 0,
+      "rawAdditions": 3,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "f741b143cb43553de3d4093be198359e02a9fc50",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-27T15:40:32+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-27T15:40:32+01:00"
+  },
+  "message": "refactor: separate colorisation and commit group logic",
+  "files": [
+    {
+      "filepath": "src/components/charts/LineChart.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/hooks/useLines.ts",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 4,
+      "rawAdditions": 8,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/hooks/useSlices.ts",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/screens/graphs/GraphsScreen.tsx",
+      "isBinary": false,
+      "additions": 13,
+      "deletions": 8,
+      "rawAdditions": 13,
+      "rawDeletions": 8
+    },
+    {
+      "filepath": "src/screens/graphs/SummaryTable.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/selectors/commits.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 36,
+      "rawAdditions": 0,
+      "rawDeletions": 36
+    },
+    {
+      "filepath": "src/types/commits.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 2,
+      "rawAdditions": 0,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/utils/colorize.ts",
+      "isBinary": false,
+      "additions": 36,
+      "deletions": 0,
+      "rawAdditions": 36,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "21b83a1ea872e12d14d3ccba770940a750c9fa3a",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-27T14:54:19+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-27T14:54:19+01:00"
+  },
+  "message": "feat: add group by filetype",
+  "files": [
+    {
+      "filepath": "src/components/ControlsBar.tsx",
+      "isBinary": false,
+      "additions": 12,
+      "deletions": 0,
+      "rawAdditions": 12,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/hooks/useLines.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/hooks/useSlices.ts",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 6,
+      "rawAdditions": 6,
+      "rawDeletions": 6
+    },
+    {
+      "filepath": "src/screens/graphs/GraphsScreen.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 14,
+      "rawAdditions": 6,
+      "rawDeletions": 14
+    },
+    {
+      "filepath": "src/screens/graphs/SelectGroupBy.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/graphs/SummaryTable.tsx",
+      "isBinary": false,
+      "additions": 10,
+      "deletions": 8,
+      "rawAdditions": 10,
+      "rawDeletions": 8
+    },
+    {
+      "filepath": "src/selectors/commits.ts",
+      "isBinary": false,
+      "additions": 83,
+      "deletions": 23,
+      "rawAdditions": 83,
+      "rawDeletions": 23
+    },
+    {
+      "filepath": "src/selectors/files.ts",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 2,
+      "rawAdditions": 7,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/types/commits.ts",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 1,
+      "rawAdditions": 4,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "eb4ddb19632485cb4290396599b4b9f4bd77a399",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-24T18:34:20+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-24T20:49:21+01:00"
+  },
+  "message": "fix: fix Microsoft Edge SVG scaling issue due to border-box issue",
+  "files": [
+    {
+      "filepath": "src/components/buttons/HoverButton.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 1,
+      "rawAdditions": 2,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/buttons/IconLink.tsx",
+      "renameOf": "src/components/buttons/IconButton.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/components/form/ClearableInput.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/icons/Icon.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 2,
+      "rawAdditions": 0,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/icons/MergeIcon.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 2,
+      "rawAdditions": 1,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/side-menu/MenuMinimizeButton.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 5,
+      "rawAdditions": 6,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/commits/CollapseAllButton.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/config/SelectAlias.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/styles/GlobalStyle.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 4,
+      "rawAdditions": 0,
+      "rawDeletions": 4
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "625171df6e2dcc51a3e75d2cf9b9e6114c4ab629",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-24T18:10:49+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-24T18:10:49+01:00"
+  },
+  "message": "fix: use paid-for icons from the noun project",
+  "files": [
+    {
+      "filepath": "assets/icons/collapse.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "assets/icons/config.svg",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 1,
+      "rawAdditions": 3,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "assets/icons/merge.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "a2140c2777c526bdd50e1003852ef40ff3bb9ca3",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-24T16:11:00+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-24T16:11:00+01:00"
+  },
+  "message": "fix: add \"year\" to time unit selection and dynamically calculate the initial value #15",
+  "files": [
+    {
+      "filepath": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/graphs/GraphsScreen.tsx",
+      "isBinary": false,
+      "additions": 44,
+      "deletions": 20,
+      "rawAdditions": 44,
+      "rawDeletions": 20
+    },
+    {
+      "filepath": "src/screens/graphs/SelectGroupBy.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 1,
+      "rawAdditions": 0,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/graphs/SelectTimeUnit.tsx",
+      "isBinary": false,
+      "additions": 9,
+      "deletions": 4,
+      "rawAdditions": 9,
+      "rawDeletions": 4
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "8451e1bfdcf310c3f9b0abd8e549a35c01685ac0",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-24T15:18:41+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-24T15:18:41+01:00"
+  },
+  "message": "fix: minimize menu on smaller screens #14",
+  "files": [
+    {
+      "filepath": "assets/icons/chart.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "assets/icons/double-arrow-left.svg",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 0,
+      "rawAdditions": 2,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/home.svg",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 0,
+      "rawAdditions": 7,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/buttons/IconButton.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 1,
+      "rawAdditions": 2,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/form/Checkbox.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 1,
+      "rawAdditions": 2,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/form/Select.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 38,
+      "deletions": 14,
+      "rawAdditions": 38,
+      "rawDeletions": 14
+    },
+    {
+      "filepath": "src/components/side-menu/MenuMinimizeButton.tsx",
+      "isBinary": false,
+      "additions": 40,
+      "deletions": 0,
+      "rawAdditions": 40,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 85,
+      "deletions": 33,
+      "rawAdditions": 85,
+      "rawDeletions": 33
+    },
+    {
+      "filepath": "src/hooks/usePrevious.ts",
+      "isBinary": false,
+      "additions": 9,
+      "deletions": 0,
+      "rawAdditions": 9,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/hooks/useWindowSize.ts",
+      "isBinary": false,
+      "additions": 26,
+      "deletions": 0,
+      "rawAdditions": 26,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/about/AboutScreen.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 18,
+      "rawAdditions": 0,
+      "rawDeletions": 18
+    },
+    {
+      "filepath": "src/screens/upload/UploadDragAndDrop.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/styles/styles.ts",
+      "isBinary": false,
+      "additions": 11,
+      "deletions": 7,
+      "rawAdditions": 11,
+      "rawDeletions": 7
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "d2235352d191002d7bb17ad7c9eafb0b6e153f01",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T22:26:31+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T22:26:31+01:00"
+  },
+  "message": "fix: add \"include merge commits\" option in config screen #3",
+  "files": [
+    {
+      "filepath": "src/components/form/Checkbox.tsx",
+      "isBinary": false,
+      "additions": 70,
+      "deletions": 0,
+      "rawAdditions": 70,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/hooks/useExtendedCommits.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/config/ConfigScreen.tsx",
+      "isBinary": false,
+      "additions": 42,
+      "deletions": 33,
+      "rawAdditions": 42,
+      "rawDeletions": 33
+    },
+    {
+      "filepath": "src/screens/config/IncludeMergeCommits.tsx",
+      "isBinary": false,
+      "additions": 17,
+      "deletions": 0,
+      "rawAdditions": 17,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/stores/config/configReducer.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/stores/config/configTypes.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "f60124fa89ce97367d7100034e813462579e9c47",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T19:45:16+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T19:45:16+01:00"
+  },
+  "message": "fix: reset session storage when changing data #9",
+  "files": [
+    {
+      "filepath": "src/stores/data/dataActions.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 10,
+      "rawAdditions": 1,
+      "rawDeletions": 10
+    },
+    {
+      "filepath": "src/stores/data/dataReducer.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 4,
+      "rawAdditions": 2,
+      "rawDeletions": 4
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "09133f9be71765ad9373d67cd65e68a4f5e65039",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T19:44:33+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T19:44:33+01:00"
+  },
+  "message": "fix: change sample projects to \"react\" and \"helm\"",
+  "files": [
+    {
+      "filepath": "src/screens/home/SelectSampleProject.tsx",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 1,
+      "rawAdditions": 4,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "static/helm.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "static/react.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "static/styled-components.json",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 1,
+      "rawAdditions": 0,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "39fb6bc7ede2e2809cc4f4e25615403c4052ff0d",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T17:21:21+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T17:31:45+01:00"
+  },
+  "message": "fix: parse commit description using markdown #11",
+  "files": [
+    {
+      "filepath": "package-lock.json",
+      "isBinary": false,
+      "additions": 11,
+      "deletions": 0,
+      "rawAdditions": 11,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "package.json",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 0,
+      "rawAdditions": 2,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/commits/CommitDetails.tsx",
+      "isBinary": false,
+      "additions": 16,
+      "deletions": 7,
+      "rawAdditions": 16,
+      "rawDeletions": 7
+    },
+    {
+      "filepath": "src/styles/GlobalStyle.ts",
+      "isBinary": false,
+      "additions": 9,
+      "deletions": 2,
+      "rawAdditions": 9,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/utils/markdown.ts",
+      "isBinary": false,
+      "additions": 14,
+      "deletions": 0,
+      "rawAdditions": 14,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "8e02b6f1ecd31247685fd92f2880432f34d25a32",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T16:49:23+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T16:59:18+01:00"
+  },
+  "message": "fix: various minor code and styling issues",
+  "files": [
+    {
+      "filepath": "src/screens/about/AboutScreen.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/commits/CommitDetails.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/config/ConfigScreen.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/home/HomeScreen.tsx",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 2,
+      "rawAdditions": 7,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/upload/DataForm.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 16,
+      "rawAdditions": 0,
+      "rawDeletions": 16
+    },
+    {
+      "filepath": "src/screens/upload/DataScreen.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 2,
+      "rawAdditions": 6,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/styles/GlobalStyle.ts",
+      "isBinary": false,
+      "additions": 14,
+      "deletions": 0,
+      "rawAdditions": 14,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "33e8cf613dbc7914ae1c2a1e01ed1276d78faef1",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T16:49:01+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T16:49:01+01:00"
+  },
+  "message": "fix: store items per page setting in session storage",
+  "files": [
+    {
+      "filepath": "src/hooks/useStateWithSessionStorage.ts",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 6,
+      "rawAdditions": 6,
+      "rawDeletions": 6
+    },
+    {
+      "filepath": "src/screens/commits/CommitsScreen.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/commits/SelectItemCount.tsx",
+      "isBinary": false,
+      "additions": 14,
+      "deletions": 20,
+      "rawAdditions": 14,
+      "rawDeletions": 20
+    },
+    {
+      "filepath": "src/screens/graphs/GraphsScreen.tsx",
+      "isBinary": false,
+      "additions": 11,
+      "deletions": 10,
+      "rawAdditions": 11,
+      "rawDeletions": 10
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "5c45339536265e7fd67030d51120adf1220ec796",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T16:21:07+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T16:21:07+01:00"
+  },
+  "message": "docs: explain data privacy",
+  "files": [
+    {
+      "filepath": "README.md",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 1,
+      "rawAdditions": 7,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "a8f117bbdca35cbe5782e7d5ce3fdc79fec3184f",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T15:51:38+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T15:51:38+01:00"
+  },
+  "message": "feat: add aliases to config screen #2",
+  "files": [
+    {
+      "filepath": "src/components/buttons/IconButton.tsx",
+      "isBinary": false,
+      "additions": 19,
+      "deletions": 0,
+      "rawAdditions": 19,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/ClearableInput.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 18,
+      "rawAdditions": 1,
+      "rawDeletions": 18
+    },
+    {
+      "filepath": "src/screens/about/AboutScreen.tsx",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 1,
+      "rawAdditions": 8,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/commits/SelectOrderBy.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 1,
+      "rawAdditions": 0,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/config/ConfigScreen.tsx",
+      "isBinary": false,
+      "additions": 12,
+      "deletions": 3,
+      "rawAdditions": 12,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/screens/config/ExcludeFilePatterns.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 1,
+      "rawAdditions": 2,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/config/IncludeFilePatterns.tsx",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 2,
+      "rawAdditions": 4,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/config/SelectAlias.tsx",
+      "isBinary": false,
+      "additions": 75,
+      "deletions": 0,
+      "rawAdditions": 75,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/config/SelectAliases.tsx",
+      "isBinary": false,
+      "additions": 42,
+      "deletions": 0,
+      "rawAdditions": 42,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/config/SelectExcludeAuthors.tsx",
+      "renameOf": "src/screens/config/SelectAuthors.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 8,
+      "rawAdditions": 6,
+      "rawDeletions": 8
+    },
+    {
+      "filepath": "src/screens/config/SelectRealName.tsx",
+      "isBinary": false,
+      "additions": 35,
+      "deletions": 0,
+      "rawAdditions": 35,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/graphs/SelectAggregationFn.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/graphs/SelectGroupBy.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/graphs/SelectTimeUnit.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/selectors/authors.ts",
+      "isBinary": false,
+      "additions": 20,
+      "deletions": 1,
+      "rawAdditions": 20,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/styles/GlobalStyle.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "f0e21986dfdb43bf247207a43ce6ce6ece94fc05",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T12:34:16+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T12:34:16+01:00"
+  },
+  "message": "fix: change default group by from project to author",
+  "files": [
+    {
+      "filepath": "src/screens/graphs/GraphsScreen.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/graphs/SelectGroupBy.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/screens/home/SelectSampleProject.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "707a1745814115d946a6b83855ac920b99cb2c5b",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T12:23:28+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T12:23:28+01:00"
+  },
+  "message": "feat: add sample project #10",
+  "files": [
+    {
+      "filepath": "package-lock.json",
+      "isBinary": false,
+      "additions": 111,
+      "deletions": 235,
+      "rawAdditions": 111,
+      "rawDeletions": 235
+    },
+    {
+      "filepath": "package.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/FormError.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 28,
+      "rawAdditions": 0,
+      "rawDeletions": 28
+    },
+    {
+      "filepath": "src/components/FormGroup.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 8,
+      "rawAdditions": 0,
+      "rawDeletions": 8
+    },
+    {
+      "filepath": "src/components/GithubCorner.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/FormError.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/home/HomeScreen.tsx",
+      "isBinary": false,
+      "additions": 5,
+      "deletions": 0,
+      "rawAdditions": 5,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/home/SelectSampleProject.tsx",
+      "isBinary": false,
+      "additions": 64,
+      "deletions": 0,
+      "rawAdditions": 64,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "static/styled-components.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "abafc922f3ca7b2b38ee582534a1d111ea36a457",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T10:13:11+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-23T10:13:11+01:00"
+  },
+  "message": "feat: improve homepage responsiveness",
+  "files": [
+    {
+      "filepath": "src/layouts/MessageLayout.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/layouts/PageLayout.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 1,
+      "rawAdditions": 6,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/home/HomeScreen.tsx",
+      "isBinary": false,
+      "additions": 10,
+      "deletions": 2,
+      "rawAdditions": 10,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/styles/GlobalStyle.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/styles/styles.ts",
+      "isBinary": false,
+      "additions": 12,
+      "deletions": 0,
+      "rawAdditions": 12,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "674b4374ff56333ac59cb0d77d2c516cc6706485",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-22T22:33:17+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-22T22:33:17+01:00"
+  },
+  "message": "fix: minor update to about page",
+  "files": [
+    {
+      "filepath": "src/screens/about/AboutScreen.tsx",
+      "isBinary": false,
+      "additions": 9,
+      "deletions": 2,
+      "rawAdditions": 9,
+      "rawDeletions": 2
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "2e663c25e840cda5f32c23c04ba5ab61d638216f",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-22T22:29:48+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-22T22:32:58+01:00"
+  },
+  "message": "fix: highlight active sidemenu item",
+  "files": [
+    {
+      "filepath": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 16,
+      "deletions": 25,
+      "rawAdditions": 16,
+      "rawDeletions": 25
+    },
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "572111b12b7ef68a4bf61e1ffc6cb7087545b26e",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-22T22:06:48+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-22T22:06:48+01:00"
+  },
+  "message": "feat: add file include/exclude filters in config screen #5",
+  "files": [
+    {
+      "filepath": "assets/icons/cross.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/plus.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/actions/config.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 12,
+      "rawAdditions": 0,
+      "rawDeletions": 12
+    },
+    {
+      "filepath": "src/actions/data.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 22,
+      "rawAdditions": 0,
+      "rawDeletions": 22
+    },
+    {
+      "filepath": "src/components/Button.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 35,
+      "rawAdditions": 0,
+      "rawDeletions": 35
+    },
+    {
+      "filepath": "src/components/buttons/ButtonGroup.tsx",
+      "renameOf": "src/components/ButtonGroup.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/buttons/DefaultButton.tsx",
+      "isBinary": false,
+      "additions": 41,
+      "deletions": 0,
+      "rawAdditions": 41,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/buttons/HoverButton.tsx",
+      "isBinary": false,
+      "additions": 44,
+      "deletions": 0,
+      "rawAdditions": 44,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/buttons/TransparentButton.tsx",
+      "renameOf": "src/components/TransparentButton.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/charts/LineChart.tsx",
+      "isBinary": false,
+      "additions": 5,
+      "deletions": 1,
+      "rawAdditions": 5,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/charts/PieChart.tsx",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 1,
+      "rawAdditions": 4,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/form/ClearableInput.tsx",
+      "isBinary": false,
+      "additions": 50,
+      "deletions": 0,
+      "rawAdditions": 50,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/Input.tsx",
+      "isBinary": false,
+      "additions": 10,
+      "deletions": 1,
+      "rawAdditions": 10,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/form/Select.tsx",
+      "isBinary": false,
+      "additions": 17,
+      "deletions": 5,
+      "rawAdditions": 17,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/components/form/StyledInput.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 16,
+      "rawAdditions": 6,
+      "rawDeletions": 16
+    },
+    {
+      "filepath": "src/components/icons/Icon.tsx",
+      "renameOf": "src/components/Icon.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 2,
+      "rawAdditions": 0,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/icons/MergeIcon.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/icons/PlusIcon.tsx",
+      "isBinary": false,
+      "additions": 11,
+      "deletions": 0,
+      "rawAdditions": 11,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 4,
+      "rawAdditions": 4,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/context/AllProviders.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 11,
+      "rawAdditions": 0,
+      "rawDeletions": 11
+    },
+    {
+      "filepath": "src/hooks/useExtendedCommits.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/index.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/layouts/MessageLayout.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/layouts/PageLayout.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/reducers/configReducer.ts",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 49,
+      "rawAdditions": 0,
+      "rawDeletions": 49
+    },
+    {
+      "filepath": "src/screens/about/AboutScreen.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/commits/CollapseAllButton.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/config/ConfigScreen.tsx",
+      "isBinary": false,
+      "additions": 48,
+      "deletions": 7,
+      "rawAdditions": 48,
+      "rawDeletions": 7
+    },
+    {
+      "filepath": "src/screens/config/ExcludeFilePatterns.tsx",
+      "isBinary": false,
+      "additions": 37,
+      "deletions": 0,
+      "rawAdditions": 37,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/config/IncludeFilePatterns.tsx",
+      "isBinary": false,
+      "additions": 34,
+      "deletions": 20,
+      "rawAdditions": 34,
+      "rawDeletions": 20
+    },
+    {
+      "filepath": "src/screens/config/SelectAuthors.tsx",
+      "isBinary": false,
+      "additions": 20,
+      "deletions": 23,
+      "rawAdditions": 20,
+      "rawDeletions": 23
+    },
+    {
+      "filepath": "src/screens/home/HomeScreen.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 5,
+      "rawAdditions": 3,
+      "rawDeletions": 5
+    },
+    {
+      "filepath": "src/screens/upload/UploadDragAndDrop.tsx",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 3,
+      "rawAdditions": 6,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/selectors/authors.ts",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 4,
+      "rawAdditions": 4,
+      "rawDeletions": 4
+    },
+    {
+      "filepath": "src/selectors/files.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/stores/Stores.tsx",
+      "isBinary": false,
+      "additions": 11,
+      "deletions": 0,
+      "rawAdditions": 11,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/stores/config/ConfigProvider.tsx",
+      "renameOf": "src/context/ConfigProvider.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 2,
+      "rawAdditions": 3,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/stores/config/configActions.ts",
+      "isBinary": false,
+      "additions": 79,
+      "deletions": 0,
+      "rawAdditions": 79,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/stores/config/configReducer.ts",
+      "isBinary": false,
+      "additions": 57,
+      "deletions": 0,
+      "rawAdditions": 57,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/stores/config/configTypes.ts",
+      "isBinary": false,
+      "additions": 17,
+      "deletions": 0,
+      "rawAdditions": 17,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/stores/data/GitDataProvider.tsx",
+      "renameOf": "src/context/GitDataProvider.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/stores/data/dataActions.ts",
+      "isBinary": false,
+      "additions": 23,
+      "deletions": 0,
+      "rawAdditions": 23,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/stores/data/dataReducer.ts",
+      "renameOf": "src/reducers/dataReducer.ts",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 11,
+      "rawAdditions": 4,
+      "rawDeletions": 11
+    },
+    {
+      "filepath": "src/styles/colors.ts",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    },
+    {
+      "filepath": "src/types/util.ts",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 0,
+      "rawAdditions": 7,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "6cc2ff71b75b762ea5f3b5064a324e092ac56710",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T17:09:51+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T17:09:51+01:00"
+  },
+  "message": "fix: show 404 page #6",
+  "files": [
+    {
+      "filepath": "src/index.tsx",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 3,
+      "rawAdditions": 4,
+      "rawDeletions": 3
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "0ac2e3b68922d242459d23283dfab9493ee89aca",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T16:39:08+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T16:39:08+01:00"
+  },
+  "message": "feat: add simple loader for upload dropzone",
+  "files": [
+    {
+      "filepath": "src/components/Loader.tsx",
+      "isBinary": false,
+      "additions": 10,
+      "deletions": 10,
+      "rawAdditions": 10,
+      "rawDeletions": 10
+    },
+    {
+      "filepath": "src/screens/upload/UploadDragAndDrop.tsx",
+      "isBinary": false,
+      "additions": 30,
+      "deletions": 16,
+      "rawAdditions": 30,
+      "rawDeletions": 16
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "cfaa7a86d87d4eb161114ea74b4333da4f9d2407",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T15:56:39+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T15:56:39+01:00"
+  },
+  "message": "fix: minor styling issue in AboutScreen",
+  "files": [
+    {
+      "filepath": "src/screens/about/AboutScreen.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 2,
+      "rawAdditions": 1,
+      "rawDeletions": 2
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "68aa337bd0283ed9300aa169f9a4e55e68f66bdb",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T15:55:37+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T15:55:37+01:00"
+  },
+  "message": "fix: change logo color to match text color",
+  "files": [
+    {
+      "filepath": "assets/logo.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "fb82c0f173e400d06bc9794e38b86cd4979b29f4",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T15:51:44+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T15:51:44+01:00"
+  },
+  "message": "chore: set spa fallback in now configuration",
+  "files": [
+    {
+      "filepath": "now.json",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 0,
+      "rawAdditions": 4,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "a169f7798fa76dff0fe8878cd056aa8a068353ef",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T14:17:28+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T14:17:28+01:00"
+  },
+  "message": "docs: change TODO to kanban board",
+  "files": [
+    {
+      "filepath": "README.md",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 6,
+      "rawAdditions": 2,
+      "rawDeletions": 6
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "10de4adc3565ff9eb42cb0d08604ae26614d4ad8",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T14:03:32+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T14:03:32+01:00"
+  },
+  "message": "fix: change sidemenu items order",
+  "files": [
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 8,
+      "rawAdditions": 8,
+      "rawDeletions": 8
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "5eaa7843be7e0ceaab309d2143b6048f699f4e85",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T14:02:01+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T14:02:01+01:00"
+  },
+  "message": "chore: remove dead code",
+  "files": [
+    {
+      "filepath": "src/components/side-menu/SubMenu.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 12,
+      "rawAdditions": 0,
+      "rawDeletions": 12
+    },
+    {
+      "filepath": "src/components/side-menu/SubMenuItem.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 28,
+      "rawAdditions": 0,
+      "rawDeletions": 28
+    },
+    {
+      "filepath": "src/screens/upload/DataUrlForm.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 28,
+      "rawAdditions": 0,
+      "rawDeletions": 28
+    },
+    {
+      "filepath": "src/screens/upload/DataUrlScreen.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 37,
+      "rawAdditions": 0,
+      "rawDeletions": 37
+    },
+    {
+      "filepath": "src/screens/upload/useDataUrlForm.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 42,
+      "rawAdditions": 0,
+      "rawDeletions": 42
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "a66b633b9f15abbd23554d702875a6516bdc818b",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T13:57:43+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T13:57:43+01:00"
+  },
+  "message": "docs: improve README readability",
+  "files": [
+    {
+      "filepath": "README.md",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 6,
+      "rawAdditions": 6,
+      "rawDeletions": 6
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "3e9c21e4d7bede13d442fd8b8df7a1ff245919d3",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T13:50:55+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T13:50:55+01:00"
+  },
+  "message": "fix: add minor improvements to commits table overview",
+  "files": [
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/commits/CommitsScreen.tsx",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 0,
+      "rawAdditions": 3,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/commits/SelectOrderBy.tsx",
+      "isBinary": false,
+      "additions": 5,
+      "deletions": 5,
+      "rawAdditions": 5,
+      "rawDeletions": 5
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "525f0d90cee814a026765886ca1fa1586355d79e",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T13:48:55+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T13:48:55+01:00"
+  },
+  "message": "chore: update linting rules",
+  "files": [
+    {
+      "filepath": ".eslintrc.js",
+      "isBinary": false,
+      "additions": 13,
+      "deletions": 18,
+      "rawAdditions": 13,
+      "rawDeletions": 18
+    },
+    {
+      "filepath": "package-lock.json",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 40,
+      "rawAdditions": 0,
+      "rawDeletions": 40
+    },
+    {
+      "filepath": "package.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 2,
+      "rawAdditions": 1,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/NL2BR.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 1,
+      "rawAdditions": 0,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "ed9aaee36d28feba13acddadf89dc43733c5f616",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T13:31:49+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T13:31:49+01:00"
+  },
+  "message": "fix: change logo circle's color",
+  "files": [
+    {
+      "filepath": "assets/logo.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "1dcadd4fbfc9cd87d34c76b24a9f94b3e1d4cc45",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T13:31:03+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T13:31:03+01:00"
+  },
+  "message": "feat: update dependencies",
+  "files": [
+    {
+      "filepath": "package-lock.json",
+      "isBinary": false,
+      "additions": 4088,
+      "deletions": 1219,
+      "rawAdditions": 4088,
+      "rawDeletions": 1219
+    },
+    {
+      "filepath": "package.json",
+      "isBinary": false,
+      "additions": 28,
+      "deletions": 28,
+      "rawAdditions": 28,
+      "rawDeletions": 28
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "d74c2a6b2243cdf05f9199bda59d14d342d5b78d",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T12:24:44+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T12:24:44+01:00"
+  },
+  "message": "feat: add logo",
+  "files": [
+    {
+      "filepath": "assets/logo.svg",
+      "isBinary": false,
+      "additions": 19,
+      "deletions": 0,
+      "rawAdditions": 19,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/Logo.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 1,
+      "rawAdditions": 2,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/components/side-menu/Logo.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 30,
+      "rawAdditions": 0,
+      "rawDeletions": 30
+    },
+    {
+      "filepath": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 2,
+      "rawAdditions": 2,
+      "rawDeletions": 2
+    },
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 8,
+      "rawAdditions": 8,
+      "rawDeletions": 8
+    },
+    {
+      "filepath": "src/index.html",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 1,
+      "rawAdditions": 0,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/layouts/PageLayout.tsx",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    },
+    {
+      "filepath": "src/screens/about/AboutScreen.tsx",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 0,
+      "rawAdditions": 7,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "d47a957f7f950b291c430a60e2ce16a0b80907d3",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T11:37:58+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T11:37:58+01:00"
+  },
+  "message": "chore: update doc comments",
+  "files": [
+    {
+      "filepath": "src/selectors/authors.ts",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 3,
+      "rawAdditions": 3,
+      "rawDeletions": 3
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "f12e013eb3506a80faf90d652247fe005ed21736",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T11:37:47+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T11:37:47+01:00"
+  },
+  "message": "chore: setup zeit now deployment",
+  "files": [
+    {
+      "filepath": "now.json",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 0,
+      "rawAdditions": 7,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "package.json",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 1,
+      "rawAdditions": 1,
+      "rawDeletions": 1
+    }
+  ],
+  "isMerge": false
+},
+{
+  "hash": "1dd45868481ef6fadf1f5e0f2ff759cece747561",
+  "author": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T11:14:25+01:00"
+  },
+  "committer": {
+    "name": "Niels Krijger",
+    "time": "2020-01-20T11:14:25+01:00"
+  },
+  "message": "feat: initial version",
+  "files": [
+    {
+      "filepath": ".babelrc",
+      "isBinary": false,
+      "additions": 10,
+      "deletions": 0,
+      "rawAdditions": 10,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": ".browserslist",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": ".editorconfig",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 0,
+      "rawAdditions": 3,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": ".eslintrc.js",
+      "isBinary": false,
+      "additions": 48,
+      "deletions": 0,
+      "rawAdditions": 48,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": ".gitignore",
+      "isBinary": false,
+      "additions": 10,
+      "deletions": 0,
+      "rawAdditions": 10,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": ".prettierrc.js",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 0,
+      "rawAdditions": 6,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "LICENSE",
+      "isBinary": false,
+      "additions": 9,
+      "deletions": 0,
+      "rawAdditions": 9,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "README.md",
+      "isBinary": false,
+      "additions": 56,
+      "deletions": 0,
+      "rawAdditions": 56,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/about.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/chart.svg",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 0,
+      "rawAdditions": 2,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/collapse.svg",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 0,
+      "rawAdditions": 2,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/commit.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/config.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/merge.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/overview.svg",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 0,
+      "rawAdditions": 3,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "assets/icons/upload.svg",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "now.json",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "package-lock.json",
+      "isBinary": false,
+      "additions": 11718,
+      "deletions": 0,
+      "rawAdditions": 11718,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "package.json",
+      "isBinary": false,
+      "additions": 65,
+      "deletions": 0,
+      "rawAdditions": 65,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/actions/config.ts",
+      "isBinary": false,
+      "additions": 12,
+      "deletions": 0,
+      "rawAdditions": 12,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/actions/data.ts",
+      "isBinary": false,
+      "additions": 22,
+      "deletions": 0,
+      "rawAdditions": 22,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/Addition.tsx",
+      "isBinary": false,
+      "additions": 13,
+      "deletions": 0,
+      "rawAdditions": 13,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/Author.tsx",
+      "isBinary": false,
+      "additions": 19,
+      "deletions": 0,
+      "rawAdditions": 19,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/Button.tsx",
+      "isBinary": false,
+      "additions": 35,
+      "deletions": 0,
+      "rawAdditions": 35,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/ButtonGroup.tsx",
+      "isBinary": false,
+      "additions": 12,
+      "deletions": 0,
+      "rawAdditions": 12,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/Deletion.tsx",
+      "isBinary": false,
+      "additions": 13,
+      "deletions": 0,
+      "rawAdditions": 13,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/FormError.tsx",
+      "isBinary": false,
+      "additions": 28,
+      "deletions": 0,
+      "rawAdditions": 28,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/FormGroup.tsx",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 0,
+      "rawAdditions": 8,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/GithubCorner.tsx",
+      "isBinary": false,
+      "additions": 0,
+      "deletions": 0,
+      "rawAdditions": 0,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/H1.tsx",
+      "isBinary": false,
+      "additions": 12,
+      "deletions": 0,
+      "rawAdditions": 12,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/H2.tsx",
+      "isBinary": false,
+      "additions": 9,
+      "deletions": 0,
+      "rawAdditions": 9,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/H3.tsx",
+      "isBinary": false,
+      "additions": 9,
+      "deletions": 0,
+      "rawAdditions": 9,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/Icon.tsx",
+      "isBinary": false,
+      "additions": 13,
+      "deletions": 0,
+      "rawAdditions": 13,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/Loader.tsx",
+      "isBinary": false,
+      "additions": 86,
+      "deletions": 0,
+      "rawAdditions": 86,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/LoadingDots.tsx",
+      "isBinary": false,
+      "additions": 27,
+      "deletions": 0,
+      "rawAdditions": 27,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/Logo.tsx",
+      "isBinary": false,
+      "additions": 38,
+      "deletions": 0,
+      "rawAdditions": 38,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/NL2BR.tsx",
+      "isBinary": false,
+      "additions": 21,
+      "deletions": 0,
+      "rawAdditions": 21,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/NoWrap.tsx",
+      "isBinary": false,
+      "additions": 7,
+      "deletions": 0,
+      "rawAdditions": 7,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/Note.tsx",
+      "isBinary": false,
+      "additions": 9,
+      "deletions": 0,
+      "rawAdditions": 9,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/ShortDateTime.tsx",
+      "isBinary": false,
+      "additions": 13,
+      "deletions": 0,
+      "rawAdditions": 13,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/SubHeader.tsx",
+      "isBinary": false,
+      "additions": 10,
+      "deletions": 0,
+      "rawAdditions": 10,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/TransparentButton.tsx",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 0,
+      "rawAdditions": 8,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/charts/LineChart.tsx",
+      "isBinary": false,
+      "additions": 154,
+      "deletions": 0,
+      "rawAdditions": 154,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/charts/PieChart.tsx",
+      "isBinary": false,
+      "additions": 101,
+      "deletions": 0,
+      "rawAdditions": 101,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/DatePicker.tsx",
+      "isBinary": false,
+      "additions": 113,
+      "deletions": 0,
+      "rawAdditions": 113,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/FormError.tsx",
+      "isBinary": false,
+      "additions": 28,
+      "deletions": 0,
+      "rawAdditions": 28,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/FormGroup.tsx",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 0,
+      "rawAdditions": 8,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/Input.tsx",
+      "isBinary": false,
+      "additions": 26,
+      "deletions": 0,
+      "rawAdditions": 26,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/InputError.tsx",
+      "isBinary": false,
+      "additions": 21,
+      "deletions": 0,
+      "rawAdditions": 21,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/Select.tsx",
+      "isBinary": false,
+      "additions": 127,
+      "deletions": 0,
+      "rawAdditions": 127,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/form/StyledInput.tsx",
+      "isBinary": false,
+      "additions": 71,
+      "deletions": 0,
+      "rawAdditions": 71,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/icons/MergeIcon.tsx",
+      "isBinary": false,
+      "additions": 11,
+      "deletions": 0,
+      "rawAdditions": 11,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/side-menu/Logo.tsx",
+      "isBinary": false,
+      "additions": 30,
+      "deletions": 0,
+      "rawAdditions": 30,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/side-menu/MenuItem.tsx",
+      "isBinary": false,
+      "additions": 57,
+      "deletions": 0,
+      "rawAdditions": 57,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/side-menu/SideMenu.tsx",
+      "isBinary": false,
+      "additions": 54,
+      "deletions": 0,
+      "rawAdditions": 54,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/side-menu/SubMenu.tsx",
+      "isBinary": false,
+      "additions": 12,
+      "deletions": 0,
+      "rawAdditions": 12,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/side-menu/SubMenuItem.tsx",
+      "isBinary": false,
+      "additions": 28,
+      "deletions": 0,
+      "rawAdditions": 28,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/table/Pagination.tsx",
+      "isBinary": false,
+      "additions": 106,
+      "deletions": 0,
+      "rawAdditions": 106,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/components/table/Table.tsx",
+      "isBinary": false,
+      "additions": 18,
+      "deletions": 0,
+      "rawAdditions": 18,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/context/AllProviders.tsx",
+      "isBinary": false,
+      "additions": 11,
+      "deletions": 0,
+      "rawAdditions": 11,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/context/ConfigProvider.tsx",
+      "isBinary": false,
+      "additions": 25,
+      "deletions": 0,
+      "rawAdditions": 25,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/context/GitDataProvider.tsx",
+      "isBinary": false,
+      "additions": 25,
+      "deletions": 0,
+      "rawAdditions": 25,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/hooks/useAggregationFn.ts",
+      "isBinary": false,
+      "additions": 28,
+      "deletions": 0,
+      "rawAdditions": 28,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/hooks/useExtendedCommits.ts",
+      "isBinary": false,
+      "additions": 52,
+      "deletions": 0,
+      "rawAdditions": 52,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/hooks/useLines.ts",
+      "isBinary": false,
+      "additions": 129,
+      "deletions": 0,
+      "rawAdditions": 129,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/hooks/usePersistedReducer.ts",
+      "isBinary": false,
+      "additions": 19,
+      "deletions": 0,
+      "rawAdditions": 19,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/hooks/useRouter.ts",
+      "isBinary": false,
+      "additions": 14,
+      "deletions": 0,
+      "rawAdditions": 14,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/hooks/useSlices.ts",
+      "isBinary": false,
+      "additions": 32,
+      "deletions": 0,
+      "rawAdditions": 32,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/hooks/useStateWithSessionStorage.ts",
+      "isBinary": false,
+      "additions": 46,
+      "deletions": 0,
+      "rawAdditions": 46,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/index.html",
+      "isBinary": false,
+      "additions": 31,
+      "deletions": 0,
+      "rawAdditions": 31,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/index.tsx",
+      "isBinary": false,
+      "additions": 47,
+      "deletions": 0,
+      "rawAdditions": 47,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/layouts/MainLayout.tsx",
+      "isBinary": false,
+      "additions": 25,
+      "deletions": 0,
+      "rawAdditions": 25,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/layouts/MessageLayout.tsx",
+      "isBinary": false,
+      "additions": 27,
+      "deletions": 0,
+      "rawAdditions": 27,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/layouts/PageLayout.tsx",
+      "isBinary": false,
+      "additions": 26,
+      "deletions": 0,
+      "rawAdditions": 26,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/reducers/configReducer.ts",
+      "isBinary": false,
+      "additions": 49,
+      "deletions": 0,
+      "rawAdditions": 49,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/reducers/dataReducer.ts",
+      "isBinary": false,
+      "additions": 32,
+      "deletions": 0,
+      "rawAdditions": 32,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/404/NotFoundScreen.tsx",
+      "isBinary": false,
+      "additions": 21,
+      "deletions": 0,
+      "rawAdditions": 21,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/about/AboutScreen.tsx",
+      "isBinary": false,
+      "additions": 48,
+      "deletions": 0,
+      "rawAdditions": 48,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/commits/CollapseAllButton.tsx",
+      "isBinary": false,
+      "additions": 39,
+      "deletions": 0,
+      "rawAdditions": 39,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/commits/CommitDetails.tsx",
+      "isBinary": false,
+      "additions": 87,
+      "deletions": 0,
+      "rawAdditions": 87,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/commits/CommitsScreen.tsx",
+      "isBinary": false,
+      "additions": 67,
+      "deletions": 0,
+      "rawAdditions": 67,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/commits/CommitsTable.tsx",
+      "isBinary": false,
+      "additions": 99,
+      "deletions": 0,
+      "rawAdditions": 99,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/commits/SelectItemCount.tsx",
+      "isBinary": false,
+      "additions": 48,
+      "deletions": 0,
+      "rawAdditions": 48,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/commits/SelectOrderBy.tsx",
+      "isBinary": false,
+      "additions": 41,
+      "deletions": 0,
+      "rawAdditions": 41,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/commits/useExpandableRows.ts",
+      "isBinary": false,
+      "additions": 30,
+      "deletions": 0,
+      "rawAdditions": 30,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/config/ConfigScreen.tsx",
+      "isBinary": false,
+      "additions": 27,
+      "deletions": 0,
+      "rawAdditions": 27,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/config/IncludeFilePatterns.tsx",
+      "isBinary": false,
+      "additions": 38,
+      "deletions": 0,
+      "rawAdditions": 38,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/config/SelectAuthors.tsx",
+      "isBinary": false,
+      "additions": 43,
+      "deletions": 0,
+      "rawAdditions": 43,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/graphs/GraphsScreen.tsx",
+      "isBinary": false,
+      "additions": 108,
+      "deletions": 0,
+      "rawAdditions": 108,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/graphs/SelectAggregationFn.tsx",
+      "isBinary": false,
+      "additions": 41,
+      "deletions": 0,
+      "rawAdditions": 41,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/graphs/SelectGroupBy.tsx",
+      "isBinary": false,
+      "additions": 39,
+      "deletions": 0,
+      "rawAdditions": 39,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/graphs/SelectTimeUnit.tsx",
+      "isBinary": false,
+      "additions": 45,
+      "deletions": 0,
+      "rawAdditions": 45,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/graphs/SummaryTable.tsx",
+      "isBinary": false,
+      "additions": 34,
+      "deletions": 0,
+      "rawAdditions": 34,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/home/HomeScreen.tsx",
+      "isBinary": false,
+      "additions": 20,
+      "deletions": 0,
+      "rawAdditions": 20,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/loading/LoadingScreen.tsx",
+      "isBinary": false,
+      "additions": 19,
+      "deletions": 0,
+      "rawAdditions": 19,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/upload/DataForm.tsx",
+      "isBinary": false,
+      "additions": 16,
+      "deletions": 0,
+      "rawAdditions": 16,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/upload/DataScreen.tsx",
+      "isBinary": false,
+      "additions": 15,
+      "deletions": 0,
+      "rawAdditions": 15,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/upload/DataUrlForm.tsx",
+      "isBinary": false,
+      "additions": 28,
+      "deletions": 0,
+      "rawAdditions": 28,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/upload/DataUrlScreen.tsx",
+      "isBinary": false,
+      "additions": 37,
+      "deletions": 0,
+      "rawAdditions": 37,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/upload/UploadDragAndDrop.tsx",
+      "isBinary": false,
+      "additions": 77,
+      "deletions": 0,
+      "rawAdditions": 77,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/upload/UploadInstructions.tsx",
+      "isBinary": false,
+      "additions": 16,
+      "deletions": 0,
+      "rawAdditions": 16,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/screens/upload/useDataUrlForm.tsx",
+      "isBinary": false,
+      "additions": 42,
+      "deletions": 0,
+      "rawAdditions": 42,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/selectors/authors.ts",
+      "isBinary": false,
+      "additions": 57,
+      "deletions": 0,
+      "rawAdditions": 57,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/selectors/commits.ts",
+      "isBinary": false,
+      "additions": 189,
+      "deletions": 0,
+      "rawAdditions": 189,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/selectors/files.ts",
+      "isBinary": false,
+      "additions": 56,
+      "deletions": 0,
+      "rawAdditions": 56,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/styles/GlobalStyle.ts",
+      "isBinary": false,
+      "additions": 71,
+      "deletions": 0,
+      "rawAdditions": 71,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/styles/colors.ts",
+      "isBinary": false,
+      "additions": 22,
+      "deletions": 0,
+      "rawAdditions": 22,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/styles/styles.ts",
+      "isBinary": false,
+      "additions": 1,
+      "deletions": 0,
+      "rawAdditions": 1,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/types/coloredElement.ts",
+      "isBinary": false,
+      "additions": 4,
+      "deletions": 0,
+      "rawAdditions": 4,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/types/commits.ts",
+      "isBinary": false,
+      "additions": 41,
+      "deletions": 0,
+      "rawAdditions": 41,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/types/filters.ts",
+      "isBinary": false,
+      "additions": 3,
+      "deletions": 0,
+      "rawAdditions": 3,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/types/form.ts",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 0,
+      "rawAdditions": 8,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/types/gitStatData.ts",
+      "isBinary": false,
+      "additions": 34,
+      "deletions": 0,
+      "rawAdditions": 34,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/types/select.ts",
+      "isBinary": false,
+      "additions": 8,
+      "deletions": 0,
+      "rawAdditions": 8,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/types/svg.ts",
+      "isBinary": false,
+      "additions": 2,
+      "deletions": 0,
+      "rawAdditions": 2,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/utils/number.ts",
+      "isBinary": false,
+      "additions": 6,
+      "deletions": 0,
+      "rawAdditions": 6,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "src/utils/time.ts",
+      "isBinary": false,
+      "additions": 19,
+      "deletions": 0,
+      "rawAdditions": 19,
+      "rawDeletions": 0
+    },
+    {
+      "filepath": "tsconfig.json",
+      "isBinary": false,
+      "additions": 24,
+      "deletions": 0,
+      "rawAdditions": 24,
+      "rawDeletions": 0
+    }
+  ],
+  "isMerge": false
+}
       ]
     }
   ]

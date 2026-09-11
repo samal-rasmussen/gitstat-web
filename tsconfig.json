@@ -11,5 +11,5 @@
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "types": ["node", "alpinejs"]
   },
-  "include": ["js", "tests", "vendor/*.d.ts"]
+  "include": ["js", "tests", "vendor/*.d.ts", "playwright.config.js"]
 }

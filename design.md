@@ -137,7 +137,7 @@ declaration file `vendor/alpine.esm.d.ts` and a global declaration for `Chart`.
 ├── vendor/                   pinned third-party files (see section 3)
 ├── assets/
 │   ├── favicon.svg
-│   └── icons/                a dozen Lucide SVGs plus their LICENSE
+│   └── icons/                ten Lucide SVGs plus their LICENSE
 ├── samples/                  smol-gitstat-web.json, generated from this repo;
 │                             samples/local/ is gitignored development data
 ├── tests/
@@ -181,7 +181,7 @@ registrations and "template" only to the HTML `<template>` element.
       <li><a href="#/commits">Commits</a></li>
       <li><a href="#/config">Config</a></li>
       <li><a href="#/about">About</a></li>
-      <li x-text="$store.app.summary"></li>
+      <li class="nav-summary" x-text="$store.app.summary"></li>
     </ul>
   </nav>
   <main class="container-fluid" x-view="$store.router.view"></main>
@@ -349,8 +349,9 @@ thousands of commits and hundreds of thousands of file entries would make every 
 Therefore:
 
 - **`js/dataset.js` is a plain module, not a store.** It holds `raw: GitStatData | null` and
-  `commits: ExtendedCommit[]` in module-level variables and exposes `load(data)`, `clear()`,
-  `rebuild(config)` and getters. Nothing in it is reactive.
+  `commits: ExtendedCommit[]` in module-level variables and exposes
+  `load(data, sizeBytes, config)`, `clear()`, `rebuild(config)` and getters. Nothing in it is
+  reactive.
 - **`$store.app` holds only small values:** `dataVersion` (incremented on load, clear and
   rebuild), `projectName`, `commitCount`, `firstTime`, `lastTime`, `sizeBytes` (of the
   uploaded JSON text, for the upload card), `summary` (a short string for the nav).
@@ -525,11 +526,12 @@ a `WeakMap` keyed by canvas and destroyed on component teardown via Alpine's `de
 ## 11. Styling
 
 - Pico's default palette and typography. No custom fonts.
-- `css/app.css` uses native nesting and Pico's custom properties. Expected size: under 100
+- `css/app.css` uses native nesting and Pico's custom properties. Expected size: about 100
   lines.
 - Layout is `container-fluid` with a max width set in CSS so charts get room on wide screens.
 - Responsive: Pico's grid collapses to one column below its breakpoint. Tables sit in
-  `overflow-auto` wrappers.
+  `overflow-auto` wrappers. The dataset summary in the nav is hidden below Pico's small
+  breakpoint, where it does not fit beside the links.
 
 ### Icons and identity
 
@@ -586,7 +588,7 @@ Dev dependencies, all invoked through npm scripts:
   "dev":      "sirv . --dev --port 3000",
   "check":    "tsc",
   "lint":     "oxlint --ignore-pattern old --ignore-pattern vendor",
-  "fmt":      "oxfmt . '!old/**' '!vendor/**' '!**/*.md'",
+  "fmt":      "oxfmt . '!old/**' '!vendor/**' '!samples/**' '!**/*.md'",
   "test":     "node --test 'tests/unit/**/*.test.js'",
   "test:e2e": "playwright test"
 }
@@ -595,13 +597,15 @@ Dev dependencies, all invoked through npm scripts:
 oxfmt has no ignore flag; it takes positional glob patterns, where a `!` prefix excludes.
 It writes by default and checks with `--check`, so CI-style verification is
 `npm run fmt -- --check`. `vendor/` is excluded from both tools because the vendored files
-are third-party; Markdown is excluded so the formatter never churns `design.md` and
-`plan.md`. The `old/` exclusions exist only while `old/` is kept and go away with it.
+are third-party; `samples/` is excluded because the sample is generated output, kept
+byte-for-byte as smol-gitstat wrote it; Markdown is excluded so the formatter never churns
+`design.md` and `plan.md`. The `old/` exclusions exist only while `old/` is kept and go away
+with it.
 
 `tsconfig.json`: `allowJs`, `checkJs`, `noEmit`, `strict`, `target: ES2022`,
 `module: ES2022`, `moduleResolution: bundler`, `esModuleInterop` (the `alpinejs` types use
 `export =`), `lib: [ES2022, DOM, DOM.Iterable]`, `types: [node, alpinejs]`,
-`include: [js, tests, vendor/*.d.ts]`. `vendor/alpine.esm.d.ts` re-exports the `alpinejs` types so
+`include: [js, tests, vendor/*.d.ts, playwright.config.js]`. `vendor/alpine.esm.d.ts` re-exports the `alpinejs` types so
 `import Alpine from '../vendor/alpine.esm.js'` is typed. `js/globals.d.ts` declares
 `const Chart: typeof import('chart.js').Chart`.
 
@@ -639,9 +643,6 @@ Node's `fs.watch` is the answer, not a bigger server.
   git clone https://github.com/alpinejs/alpine /tmp/alpine
   cd /tmp/alpine && npx smol-gitstat --out <repo>/samples/local/alpine.json
   ```
-
-  The published smol-gitstat must include rename and body support; until it does, run the
-  patched checkout directly instead of `npx`.
 - **Performance data:** the old React sample in `old/static` (section 14). Nothing to fetch.
 
 ## 14. Performance targets and notes
