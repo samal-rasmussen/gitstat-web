@@ -80,9 +80,9 @@ loaded from `index.html`. No CDN, no import map.
 
 | Library | Version | File | Loaded as |
 |---|---|---|---|
-| Alpine.js | 3.17.x | `vendor/alpine.esm.js` (from `alpinejs/dist/module.esm.js`) | ES module import from `js/app.js`, started explicitly with `Alpine.start()` |
-| Chart.js | 4.5.x | `vendor/chart.umd.js` (from `chart.js/dist/chart.umd.js`) | Classic `<script>`; exposes the `Chart` global with all controllers registered |
-| Pico CSS | 2.1.x | `vendor/pico.min.css` (from `@picocss/pico/css/pico.min.css`) | `<link rel="stylesheet">` |
+| Alpine.js | 3.17.2 | `vendor/alpine.esm.js` (from `alpinejs/dist/module.esm.js`) | ES module import from `js/app.js`, started explicitly with `Alpine.start()` |
+| Chart.js | 4.5.1 | `vendor/chart.umd.js` (from `chart.js/dist/chart.umd.js`) | Classic `<script>`; exposes the `Chart` global with all controllers registered |
+| Pico CSS | 2.1.1 | `vendor/pico.min.css` (from `@picocss/pico/css/pico.min.css`) | `<link rel="stylesheet">` |
 
 Why these forms:
 
@@ -173,7 +173,7 @@ registrations and "template" only to the HTML `<template>` element.
   <script src="vendor/chart.umd.js" defer></script>
   <script type="module" src="js/app.js"></script>
 </head>
-<body>
+<body x-data>
   <nav class="container-fluid">
     <ul><li><strong><a href="#/">smol-gitstat</a></strong></li></ul>
     <ul>
@@ -190,7 +190,10 @@ registrations and "template" only to the HTML `<template>` element.
 ```
 
 Deferred classic scripts and module scripts execute in document order after parsing, so
-`Chart` exists before `app.js` runs.
+`Chart` exists before `app.js` runs. The empty `x-data` on `<body>` is required: Alpine only
+initialises trees rooted at an `x-data` element, so without it neither `x-view` nor the nav's
+`x-text` would ever run. The nav links carry their icons as `<span class="icon icon-<name>">`
+spans per section 11.
 
 ### 5.2 Boot sequence (`js/app.js`)
 
@@ -550,8 +553,11 @@ never inline in markup.
   - Config view: `x` on the remove buttons of the excluded commits list, `rotate-ccw` on
     "Reset config".
 - **Applied with a CSS mask.** An `<img>` of an SVG cannot use `currentColor`, so each icon
-  is a `<span class="icon" style="--icon: url(...)">` (or a per-icon class) with
-  `background-color: currentColor` and `mask: var(--icon) center / contain no-repeat`. The
+  is a `<span class="icon icon-<name>">` with `background-color: currentColor` and
+  `mask: var(--icon) center / contain no-repeat`. The per-icon classes setting `--icon` live
+  in `css/app.css`, because a `url()` inside a custom property resolves against the
+  stylesheet that defines it, not the document, so an inline `style` attribute would resolve
+  icon paths inconsistently. The
   icon takes the surrounding text colour in both themes and sizes with the font. Decorative
   icons carry `aria-hidden`; standalone ones carry `aria-label`.
 - **Text where text is better:** "Previous" / "Next" for pagination, and text markers for
@@ -568,8 +574,8 @@ Dev dependencies, all invoked through npm scripts:
 | sirv-cli | static dev server | none |
 | typescript | `tsc` type-checks JSDoc-annotated JS | `tsconfig.json` |
 | @types/alpinejs, chart.js | types only, for the vendored libraries | |
-| oxlint | linting | none; `old/` is ignored via a script flag |
-| oxfmt | formatting | none; `old/` is ignored via a script flag |
+| oxlint | linting | none; `old/` and `vendor/` are ignored via script flags |
+| oxfmt | formatting | none; `old/`, `vendor/` and Markdown are excluded via path patterns |
 | @playwright/test | end-to-end tests | `playwright.config.js` |
 
 `package.json` scripts:
@@ -578,19 +584,22 @@ Dev dependencies, all invoked through npm scripts:
 {
   "dev":      "sirv . --dev --port 3000",
   "check":    "tsc",
-  "lint":     "oxlint --ignore-pattern old",
-  "fmt":      "oxfmt --ignore-pattern old",
+  "lint":     "oxlint --ignore-pattern old --ignore-pattern vendor",
+  "fmt":      "oxfmt . '!old/**' '!vendor/**' '!**/*.md'",
   "test":     "node --test 'tests/unit/**/*.test.js'",
   "test:e2e": "playwright test"
 }
 ```
 
-The ignore flags exist only while `old/` is kept and go away with it. The exact flag names
-are checked against the installed versions during implementation.
+oxfmt has no ignore flag; it takes positional glob patterns, where a `!` prefix excludes.
+It writes by default and checks with `--check`, so CI-style verification is
+`npm run fmt -- --check`. `vendor/` is excluded from both tools because the vendored files
+are third-party; Markdown is excluded so the formatter never churns `design.md` and
+`plan.md`. The `old/` exclusions exist only while `old/` is kept and go away with it.
 
 `tsconfig.json`: `allowJs`, `checkJs`, `noEmit`, `strict`, `target: ES2022`,
-`module: ES2022`, `moduleResolution: bundler`, `lib: [ES2022, DOM]`, `include: [js, tests,
-vendor/*.d.ts]`. `vendor/alpine.esm.d.ts` re-exports the `alpinejs` types so
+`module: ES2022`, `moduleResolution: bundler`, `esModuleInterop` (the `alpinejs` types use
+`export =`), `lib: [ES2022, DOM, DOM.Iterable]`, `include: [js, tests, vendor/*.d.ts]`. `vendor/alpine.esm.d.ts` re-exports the `alpinejs` types so
 `import Alpine from '../vendor/alpine.esm.js'` is typed. `js/globals.d.ts` declares
 `const Chart: typeof import('chart.js').Chart`.
 

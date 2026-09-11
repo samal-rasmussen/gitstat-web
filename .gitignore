@@ -1,0 +1,6 @@
+node_modules/
+samples/local/
+test-results/
+playwright-report/
+blob-report/
+.claude/

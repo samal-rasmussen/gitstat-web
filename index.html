@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>smol-gitstat</title>
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="vendor/pico.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+    <script src="vendor/chart.umd.js" defer></script>
+    <script type="module" src="js/app.js"></script>
+  </head>
+  <body x-data>
+    <nav class="container-fluid">
+      <ul>
+        <li>
+          <strong><a href="#/">smol-gitstat</a></strong>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="#/graphs"
+            ><span class="icon icon-chart-line" aria-hidden="true"></span> Graphs</a
+          >
+        </li>
+        <li>
+          <a href="#/commits"
+            ><span class="icon icon-git-commit-horizontal" aria-hidden="true"></span> Commits</a
+          >
+        </li>
+        <li>
+          <a href="#/config"><span class="icon icon-settings" aria-hidden="true"></span> Config</a>
+        </li>
+        <li>
+          <a href="#/about"><span class="icon icon-info" aria-hidden="true"></span> About</a>
+        </li>
+        <li x-text="$store.app.summary"></li>
+      </ul>
+    </nav>
+    <main class="container-fluid" x-view="$store.router.view"></main>
+  </body>
+</html>

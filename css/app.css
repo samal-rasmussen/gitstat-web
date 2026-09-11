@@ -1,0 +1,46 @@
+.container-fluid {
+  max-width: 72rem;
+  margin-inline: auto;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  background-color: currentColor;
+  mask: var(--icon) center / contain no-repeat;
+}
+
+/* url() inside a custom property resolves against this stylesheet, not the
+   document, so the icon files are addressed from here. */
+.icon-upload {
+  --icon: url(../assets/icons/upload.svg);
+}
+.icon-chart-line {
+  --icon: url(../assets/icons/chart-line.svg);
+}
+.icon-git-commit-horizontal {
+  --icon: url(../assets/icons/git-commit-horizontal.svg);
+}
+.icon-settings {
+  --icon: url(../assets/icons/settings.svg);
+}
+.icon-info {
+  --icon: url(../assets/icons/info.svg);
+}
+.icon-trash-2 {
+  --icon: url(../assets/icons/trash-2.svg);
+}
+.icon-git-merge {
+  --icon: url(../assets/icons/git-merge.svg);
+}
+.icon-chevron-right {
+  --icon: url(../assets/icons/chevron-right.svg);
+}
+.icon-x {
+  --icon: url(../assets/icons/x.svg);
+}
+.icon-rotate-ccw {
+  --icon: url(../assets/icons/rotate-ccw.svg);
+}
