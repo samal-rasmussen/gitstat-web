@@ -1,3 +1,47 @@
-<section>
+<section x-data="uploadView">
   <h1>Upload</h1>
+  <p>
+    smol-gitstat-web turns a git history into activity graphs, per-author and per-filetype
+    summaries, and a browsable commit list.
+  </p>
+  <p>
+    Run <code>npx smol-gitstat</code> in a repository, then drop the resulting
+    <code>gitstat.json</code> here.
+  </p>
+  <label
+    class="dropzone"
+    :class="dragging && 'dragging'"
+    @dragover.prevent="dragging = true"
+    @dragleave.prevent="dragging = false"
+    @drop.prevent="onDrop($event)"
+  >
+    <span class="icon icon-upload" aria-hidden="true"></span>
+    <span x-show="!parsing">Drop a gitstat JSON file here, or click to choose one.</span>
+    <span x-show="parsing" aria-busy="true">Parsing&hellip;</span>
+    <input type="file" accept=".json,application/json" @change="onPick($event)" hidden />
+  </label>
+  <p class="upload-error" role="alert" x-show="error !== ''" x-text="error"></p>
+  <p>
+    <button class="secondary outline" :disabled="parsing" @click="loadSample">Load sample</button>
+  </p>
+  <template x-if="loaded">
+    <article>
+      <header><strong x-text="$store.app.projectName"></strong></header>
+      <p>
+        <span x-text="commitCountLabel()"></span> commits &middot;
+        <span x-text="dateRangeLabel()"></span> &middot; <span x-text="sizeLabel()"></span>
+      </p>
+      <footer>
+        <div role="group">
+          <a role="button" href="#/graphs">Go to graphs</a>
+          <button class="secondary" @click="clearData">
+            <span class="icon icon-trash-2" aria-hidden="true"></span> Clear data
+          </button>
+        </div>
+      </footer>
+    </article>
+  </template>
+  <p>
+    <small>Privacy: your data is stored only in this browser. Nothing is uploaded anywhere.</small>
+  </p>
 </section>

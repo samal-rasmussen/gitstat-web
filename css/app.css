@@ -44,3 +44,29 @@
 .icon-rotate-ccw {
   --icon: url(../assets/icons/rotate-ccw.svg);
 }
+
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 3rem 1rem;
+  border: 2px dashed var(--pico-muted-border-color);
+  border-radius: var(--pico-border-radius);
+  cursor: pointer;
+  text-align: center;
+}
+
+.dropzone.dragging {
+  border-color: var(--pico-primary);
+  background-color: var(--pico-card-background-color);
+}
+
+.dropzone .icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.upload-error {
+  color: var(--pico-del-color);
+}

@@ -1,12 +1,19 @@
 /**
- * Boot sequence: register the `x-view` directive and the stores, load
- * persisted state, start the router, then start Alpine.
+ * Boot sequence (design 5.2): register the `x-view` directive, the stores and
+ * the view components, load the persisted config and dataset, start the
+ * router, then start Alpine. The dataset load is awaited before `start()` so
+ * the first render already knows whether data exists.
  */
 import Alpine from "../vendor/alpine.esm.js";
-import { registerViewDirective } from "./view.js";
+import { registerConfigStore, snapshot } from "./config.js";
+import * as dataset from "./dataset.js";
+import * as db from "./db.js";
 import { startRouter } from "./router.js";
+import { registerViewDirective } from "./view.js";
+import { registerUploadView } from "./views/upload.js";
 
 registerViewDirective(Alpine);
+registerUploadView(Alpine);
 
 Alpine.store("app", {
   dataVersion: 0,
@@ -14,12 +21,15 @@ Alpine.store("app", {
   commitCount: 0,
   firstTime: 0,
   lastTime: 0,
+  sizeBytes: 0,
   summary: "",
 });
 
-// Step 3, load the persisted config, and step 4, load the stored dataset from
-// IndexedDB, arrive with phase 3. Until then no dataset ever exists, so the
-// router guard redirects every data view to upload.
-startRouter(Alpine, () => false);
+registerConfigStore();
+
+const record = await db.get();
+if (record !== null) dataset.load(record.data, record.sizeBytes, snapshot());
+
+startRouter(Alpine, dataset.hasData);
 
 Alpine.start();

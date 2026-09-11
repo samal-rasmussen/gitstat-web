@@ -352,8 +352,8 @@ Therefore:
   `commits: ExtendedCommit[]` in module-level variables and exposes `load(data)`, `clear()`,
   `rebuild(config)` and getters. Nothing in it is reactive.
 - **`$store.app` holds only small values:** `dataVersion` (incremented on load, clear and
-  rebuild), `projectName`, `commitCount`, `firstTime`, `lastTime`, `summary` (a short string
-  for the nav).
+  rebuild), `projectName`, `commitCount`, `firstTime`, `lastTime`, `sizeBytes` (of the
+  uploaded JSON text, for the upload card), `summary` (a short string for the nav).
 - **View components read the dataset through functions** in their `init()` and in
   `$watch('$store.app.dataVersion')` and query watchers, then assign small derived results
   (a few series arrays, a page of commits) to their own reactive state.
@@ -369,9 +369,9 @@ runs and bumps `dataVersion`.
 
 ### 7.3 Dataset persistence (`js/db.js`)
 
-One IndexedDB database with one object store and one key. `get()`, `set(data)`, `clear()`.
-The parsed object is stored by structured clone, which is faster than re-parsing text and has no
-size ceiling in practice. The upload view's "clear data" button calls `clear()` and
+One IndexedDB database with one object store and one key. `get()`, `set(record)`, `clear()`.
+The record — the parsed object plus its byte size, `{ data, sizeBytes }` — is stored by
+structured clone, which is faster than re-parsing text and has no size ceiling in practice. The upload view's "clear data" button calls `clear()` and
 `dataset.clear()`.
 
 ### 7.4 URL state
