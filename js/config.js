@@ -11,7 +11,7 @@ const STORAGE_KEY = "config";
 
 /** @type {Readonly<Config>} */
 export const DEFAULTS = Object.freeze({
-  dateBasis: "committer",
+  dateBasis: "author",
   includeMergeCommits: false,
   includeFilePatterns: [],
   excludeFilePatterns: [],

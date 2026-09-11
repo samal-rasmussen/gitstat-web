@@ -1,6 +1,9 @@
 <section class="config-view narrow" x-data="configView">
   <style>
     .config-view {
+      .pattern-help {
+        font-size: 0.875em;
+      }
       /* On narrow screens the authors table scrolls sideways instead of
          crushing the alias input and wrapping names. */
       .authors-table {
@@ -20,12 +23,12 @@
     <fieldset>
       <legend>Date basis</legend>
       <label>
-        <input type="radio" name="dateBasis" value="committer" x-model="$store.config.dateBasis" />
-        Committer date
-      </label>
-      <label>
         <input type="radio" name="dateBasis" value="author" x-model="$store.config.dateBasis" />
         Author date
+      </label>
+      <label>
+        <input type="radio" name="dateBasis" value="committer" x-model="$store.config.dateBasis" />
+        Committer date
       </label>
     </fieldset>
     <label>
@@ -37,6 +40,21 @@
     </small>
 
     <h2>Files</h2>
+    <details class="pattern-help">
+      <summary>How patterns match</summary>
+      <p>
+        Each line is a regular expression tested against the full file path (like
+        <code>src/charts/line.js</code>), unanchored and case-sensitive. Folder names are part
+        of the path, so patterns match them too. Escape regex characters like <code>.</code>
+        with a backslash when you mean them literally.
+      </p>
+      <ul>
+        <li><code>\.ts$</code> — files with the <code>.ts</code> extension</li>
+        <li><code>legacy</code> — any path containing "legacy"</li>
+        <li><code>^src/</code> — everything under the top-level <code>src</code> folder</li>
+        <li><code>node_modules/</code> — a <code>node_modules</code> folder at any depth</li>
+      </ul>
+    </details>
     <label>
       Include patterns
       <textarea

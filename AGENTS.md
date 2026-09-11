@@ -263,7 +263,7 @@ right (a theme switch shows up on the next render).
 
 Pico provides the look. `css/app.css` is app-global only — the shell, icons, spacing and
 shared utilities; view-specific rules live in the `<style>` block of the view's HTML
-file. Comments at the rules explain anything non-obvious. The design principles behind
+file, nested under the view's wrapper class (`.commits-view` etc.) so they cannot leak. Comments at the rules explain anything non-obvious. The design principles behind
 the overrides: the app is denser than Pico's defaults (tightened globally through
 Pico's spacing custom properties, not per-element rules); data views (charts, tables) use
 the full container width while form-and-prose views are capped at a readable width; on
