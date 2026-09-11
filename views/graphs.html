@@ -1,4 +1,18 @@
-<section x-data="graphsView">
+<section class="graphs-view" x-data="graphsView">
+  <style>
+    .graphs-view {
+      /* Chart heights scale with the viewport: compact on phones, room to
+         breathe on wide screens. Chart.js follows the container size. */
+      .chart-line,
+      .chart-pie {
+        position: relative;
+        height: clamp(14rem, 8rem + 25vw, 30rem);
+      }
+      .chart-pie {
+        height: clamp(13rem, 6rem + 22vw, 24rem);
+      }
+    }
+  </style>
   <h1>Graphs</h1>
   <fieldset class="grid">
     <label>

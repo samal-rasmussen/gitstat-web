@@ -1,4 +1,27 @@
-<section class="narrow" x-data="uploadView">
+<section class="upload-view narrow" x-data="uploadView">
+  <style>
+    .upload-view {
+      .dropzone {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 3rem 1rem;
+        border: 2px dashed var(--pico-muted-border-color);
+        border-radius: var(--pico-border-radius);
+        cursor: pointer;
+        text-align: center;
+        .icon {
+          width: 2rem;
+          height: 2rem;
+        }
+        &.dragging {
+          border-color: var(--pico-primary);
+          background-color: var(--pico-card-background-color);
+        }
+      }
+    }
+  </style>
   <h1>Upload</h1>
   <p>
     smol-gitstat-web turns a git history into activity graphs, per-author and per-filetype
@@ -20,7 +43,7 @@
     <span x-show="parsing" aria-busy="true">Parsing&hellip;</span>
     <input type="file" accept=".json,application/json" @change="onPick($event)" hidden />
   </label>
-  <p class="upload-error" role="alert" x-show="error !== ''" x-text="error"></p>
+  <p class="error-text" role="alert" x-show="error !== ''" x-text="error"></p>
   <p>
     <button class="secondary outline" :disabled="parsing" @click="loadSample">Load sample</button>
   </p>

@@ -101,7 +101,9 @@ redirect to `/`.
 **View loading** (`js/view.js`): the `x-view` directive fetches `views/<name>.html`
 (cached in a Map) and injects it inside `Alpine.nextTick`, keeping the injection outside
 Alpine's own mutation phase; Alpine's mutation observer then initialises the markup.
-Views contain no `<script>` (the browser would not execute them); each view's root element
+Views contain no `<script>` (the browser would not execute them), but they do carry their
+own view-specific CSS in a `<style>` block at the top — injected styles apply normally
+and leave the document when navigation replaces the view. Each view's root element
 declares `x-data="<name>View"` referring to a component registered from `js/views/`.
 
 ## Data model
@@ -259,9 +261,10 @@ right (a theme switch shows up on the next render).
 
 ## Styling and icons
 
-Pico provides the look; `css/app.css` holds the small set of overrides and additions on
-top of it, with comments explaining anything non-obvious. The design principles behind
-those overrides: the app is denser than Pico's defaults (tightened globally through
+Pico provides the look. `css/app.css` is app-global only — the shell, icons, spacing and
+shared utilities; view-specific rules live in the `<style>` block of the view's HTML
+file. Comments at the rules explain anything non-obvious. The design principles behind
+the overrides: the app is denser than Pico's defaults (tightened globally through
 Pico's spacing custom properties, not per-element rules); data views (charts, tables) use
 the full container width while form-and-prose views are capped at a readable width; on
 small screens the layout sheds rather than wraps (nav labels drop out, wide tables scroll

@@ -1,4 +1,19 @@
-<section class="narrow" x-data="configView">
+<section class="config-view narrow" x-data="configView">
+  <style>
+    .config-view {
+      /* On narrow screens the authors table scrolls sideways instead of
+         crushing the alias input and wrapping names. */
+      .authors-table {
+        th,
+        td {
+          white-space: nowrap;
+        }
+        input[type="text"] {
+          min-width: 10rem;
+        }
+      }
+    }
+  </style>
   <h1>Config</h1>
   <form @submit.prevent>
     <h2>General</h2>
@@ -31,7 +46,7 @@
         placeholder="one regular expression per line"
       ></textarea>
       <small>Only files matching a pattern count. Leave empty to include everything.</small>
-      <small class="upload-error" x-show="invalidInclude !== ''">
+      <small class="error-text" x-show="invalidInclude !== ''">
         Invalid: <span x-text="invalidInclude"></span>
       </small>
     </label>
@@ -44,7 +59,7 @@
         placeholder="one regular expression per line"
       ></textarea>
       <small>Files matching a pattern never count. Exclude wins over include.</small>
-      <small class="upload-error" x-show="invalidExclude !== ''">
+      <small class="error-text" x-show="invalidExclude !== ''">
         Invalid: <span x-text="invalidExclude"></span>
       </small>
     </label>

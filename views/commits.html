@@ -1,4 +1,45 @@
-<section x-data="commitsView">
+<section class="commits-view" x-data="commitsView">
+  <style>
+    .commits-view {
+      .commit-row {
+        cursor: pointer;
+      }
+      .commit-body {
+        white-space: pre-wrap;
+      }
+      /* When the commit table scrolls sideways the detail row would be as
+         wide as the table; pinning its content to the left edge keeps the
+         text readable without scrolling back and forth. */
+      .commit-detail > td > * {
+        position: sticky;
+        left: 0;
+        max-width: calc(100vw - 2.5rem);
+      }
+      /* Long hashes and file paths may break anywhere, so the pinned detail
+         content never forces a width beyond the viewport. */
+      .commit-detail code,
+      .commit-detail table td:first-child {
+        overflow-wrap: anywhere;
+      }
+      .dimmed {
+        opacity: 0.5;
+      }
+      .added {
+        color: var(--pico-ins-color);
+      }
+      .removed {
+        color: var(--pico-del-color);
+      }
+      .rename {
+        display: block;
+        color: var(--pico-muted-color);
+      }
+      .exclude-commit {
+        display: inline-block;
+        margin-inline-start: 1rem;
+      }
+    }
+  </style>
   <h1>Commits</h1>
   <fieldset class="grid">
     <label>

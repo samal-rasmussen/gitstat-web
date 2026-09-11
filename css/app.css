@@ -1,3 +1,8 @@
+/* App-global styles only: the shell (nav), icons, spacing and shared
+   utilities. View-specific rules live in a <style> block at the top of the
+   view's HTML file — injected styles apply like any other, and leave when
+   navigation replaces the view. */
+
 /* Pico's spacing defaults are roomy; tighten the whole app via its custom
    properties: form element padding (inputs, selects, buttons) and the general
    spacing unit (table cell padding, block margins). */
@@ -57,37 +62,6 @@
   transform: rotate(90deg);
 }
 
-.dropzone {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 3rem 1rem;
-  border: 2px dashed var(--pico-muted-border-color);
-  border-radius: var(--pico-border-radius);
-  cursor: pointer;
-  text-align: center;
-  .icon {
-    width: 2rem;
-    height: 2rem;
-  }
-  &.dragging {
-    border-color: var(--pico-primary);
-    background-color: var(--pico-card-background-color);
-  }
-}
-
-/* Chart heights scale with the viewport: compact on phones, room to breathe
-   on wide screens. Chart.js follows the container size. */
-.chart-line,
-.chart-pie {
-  position: relative;
-  height: clamp(14rem, 8rem + 25vw, 30rem);
-}
-.chart-pie {
-  height: clamp(13rem, 6rem + 22vw, 24rem);
-}
-
 /* Wide screens: forms and prose keep a readable width instead of stretching
    across the whole container, and control grids cap their column width so
    selects and buttons stay hand-sized. Data views (charts, tables) use the
@@ -129,54 +103,8 @@ table {
   text-align: right;
 }
 
-/* On narrow screens the authors table scrolls sideways instead of crushing
-   the alias input and wrapping names. */
-.authors-table {
-  th,
-  td {
-    white-space: nowrap;
-  }
-  input[type="text"] {
-    min-width: 10rem;
-  }
-}
-.dimmed {
-  opacity: 0.5;
-}
-.added {
-  color: var(--pico-ins-color);
-}
-.removed,
-.upload-error {
+.error-text {
   color: var(--pico-del-color);
-}
-.commit-row {
-  cursor: pointer;
-}
-.commit-body {
-  white-space: pre-wrap;
-}
-/* When the commit table scrolls sideways the detail row would be as wide as the
-   table; pinning its content to the left edge keeps the text readable without
-   scrolling back and forth. */
-.commit-detail > td > * {
-  position: sticky;
-  left: 0;
-  max-width: calc(100vw - 2.5rem);
-}
-/* Long hashes and file paths may break anywhere, so the pinned detail content
-   never forces a width beyond the viewport. */
-.commit-detail code,
-.commit-detail table td:first-child {
-  overflow-wrap: anywhere;
-}
-.rename {
-  display: block;
-  color: var(--pico-muted-color);
-}
-.exclude-commit {
-  display: inline-block;
-  margin-inline-start: 1rem;
 }
 
 /* Nav items never wrap internally; the summary shrinks with an ellipsis instead,
