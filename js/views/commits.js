@@ -2,6 +2,7 @@
  * The commits view: a sortable, paginated table with an
  * expandable detail row per commit. Sort, page size and page live in the URL.
  */
+import { isoDateTime } from "../compute/time.js";
 import * as dataset from "../dataset.js";
 
 const SORTS = ["time", "additions", "deletions", "mutations"];
@@ -20,16 +21,6 @@ export function registerCommitsView(Alpine) {
     /** @type {{ query: Record<string, string>, setQuery: (patch: Record<string, string>) => void }} */ (
       Alpine.store("router")
     );
-  // All-numeric two-digit fields give every date the same width, so the
-  // column aligns under tabular-nums.
-  const dateFormat = new Intl.DateTimeFormat(undefined, {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
   Alpine.data("commitsView", () => ({
     sort: "time",
     per: "50",
@@ -115,7 +106,7 @@ export function registerCommitsView(Alpine) {
     },
     /** @param {number} ms */
     dateLabel(ms) {
-      return dateFormat.format(ms);
+      return isoDateTime(ms);
     },
   }));
 }

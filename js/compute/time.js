@@ -62,6 +62,34 @@ export function add(ms, unit, n) {
 }
 
 /**
+ * @param {number} n
+ * @returns {string}
+ */
+function pad2(n) {
+  return String(n).padStart(2, "0");
+}
+
+/**
+ * The local date of `ms` in ISO form: `2021-01-04`.
+ * @param {number} ms
+ * @returns {string}
+ */
+export function isoDate(ms) {
+  const d = new Date(ms);
+  return `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+}
+
+/**
+ * The local date and time of `ms` in ISO form: `2021-01-04 12:50`.
+ * @param {number} ms
+ * @returns {string}
+ */
+export function isoDateTime(ms) {
+  const d = new Date(ms);
+  return `${isoDate(ms)} ${pad2(d.getHours())}:${pad2(d.getMinutes())}`;
+}
+
+/**
  * A stable string key for the bucket containing `ms`: `2021-01-04` for days
  * and weeks (the Monday), `2021-01` for months, `2021` for years.
  * @param {number} ms
@@ -69,53 +97,27 @@ export function add(ms, unit, n) {
  * @returns {string}
  */
 export function bucketKey(ms, unit) {
-  const d = new Date(startOf(ms, unit));
-  const year = String(d.getFullYear());
-  const month = String(d.getMonth() + 1).padStart(2, "0");
-  const day = String(d.getDate()).padStart(2, "0");
+  const iso = isoDate(startOf(ms, unit));
   switch (unit) {
     case "day":
     case "week":
-      return `${year}-${month}-${day}`;
+      return iso;
     case "month":
-      return `${year}-${month}`;
+      return iso.slice(0, 7);
     case "year":
-      return year;
+      return iso.slice(0, 4);
   }
 }
 
-// Constructing an Intl.DateTimeFormat is far more expensive than using one,
-// so the label formatters are built once — lazily, so they pick up a test's
-// process.env.TZ rather than the timezone at import time.
-/** @type {{ day: Intl.DateTimeFormat, month: Intl.DateTimeFormat, year: Intl.DateTimeFormat } | null} */
-let formats = null;
-
-function labelFormats() {
-  formats ??= {
-    day: new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short", day: "numeric" }),
-    month: new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short" }),
-    year: new Intl.DateTimeFormat(undefined, { year: "numeric" }),
-  };
-  return formats;
-}
-
 /**
- * A human label for the bucket containing `ms`, in the browser locale.
+ * The label for the bucket containing `ms`: the ISO date of the bucket start,
+ * shortened to the unit — identical to the bucket key.
  * @param {number} ms
  * @param {TimeUnit} unit
  * @returns {string}
  */
 export function label(ms, unit) {
-  const start = startOf(ms, unit);
-  switch (unit) {
-    case "day":
-    case "week":
-      return labelFormats().day.format(start);
-    case "month":
-      return labelFormats().month.format(start);
-    case "year":
-      return labelFormats().year.format(start);
-  }
+  return bucketKey(ms, unit);
 }
 
 /**

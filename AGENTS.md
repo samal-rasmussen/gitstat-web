@@ -53,7 +53,7 @@ the `Chart` global).
 
 ```
 index.html            app shell: nav, <main x-view>, script and style tags
-css/app.css           overrides and additions on top of Pico (~100 lines)
+css/app.css           overrides and additions on top of Pico
 js/
   app.js              boot: register directive, stores, components; Alpine.start()
   router.js           hash router and URL query state
@@ -210,9 +210,7 @@ under Node for unit tests.
   descending by total.
 - **`time.js`** — native `Date` in local time: `startOf`, `add`, `bucketKey`, `label`,
   `periodCount`, `autoUnit(from, to, max = 100)` (finest unit with at most `max`
-  periods). Weeks start on Monday. The `Intl` label formatters are built lazily on first
-  use — unit tests pin `process.env.TZ` at the top of the file, which a module-scope
-  formatter would ignore. Don't "optimise" them back to module scope.
+  periods), and the `isoDate`/`isoDateTime` display formatters. Weeks start on Monday.
 - **`series.js`** — `buildSeries(groups, aggregator, unit, from, to)` produces one label
   per bucket and a zero-filled `values` array per group. Above 2000 total points the
   smallest groups fold into one `Others` series (decided before any values arrays are
@@ -261,39 +259,14 @@ right (a theme switch shows up on the next render).
 
 ## Styling and icons
 
-Pico's spacing defaults are roomy, so `css/app.css` tightens the whole app through
-Pico's custom properties on `:root`: `--pico-form-element-spacing-vertical/horizontal`
-(input, select and button padding) and `--pico-spacing` (the general unit behind table
-cell padding, block margins and grid gaps, which therefore all scale together). Inside
-`fieldset.grid` the controls' own bottom margins are zeroed — the grid gap alone spaces
-them, so stacked columns don't get double gaps. Tables are denser still (cell
-`padding-block` below Pico's spacing/2) and set `font-variant-numeric: tabular-nums`;
-numeric columns carry a `.num` class (right-aligned), and the commit list formats dates
-with all-numeric two-digit fields so every date is the same width and the column aligns.
-
-Pico provides the look; `css/app.css` (target: about 200 lines) is limited to chart
-containers, the dropzone, commit detail rows, the icon classes and small fixes. Layout is
-`container-fluid` with a max width; tables sit in `overflow-auto` wrappers. No external
-fonts.
-
-On wide screens content keeps a sensible width instead of stretching across the whole
-container: the form-and-prose views (upload, about, config) put a `.narrow` class on
-their section (max-width 42rem), and `fieldset.grid` control rows cap their columns at
-11rem so selects and buttons stay hand-sized (sized so all five graph controls share one
-row at 1280px, where Pico's fluid typography has grown 1rem to 20px). The data views
-(charts, commits table) use the full width, and the chart containers grow taller with
-the viewport (`clamp` heights): compact on phones, up to 30rem (line) and 24rem (pie)
-on wide screens.
-
-Responsive behaviour is nowrap-and-shed rather than wrap: nav items never wrap internally
-(the dataset summary ellipsizes, disappears below 768px, and below 576px the nav link
-labels go too, leaving the icons with `title` tooltips); date and author cells in the
-commits table and all cells in the config authors table are `nowrap`, so on narrow
-screens those tables scroll sideways in their `overflow-auto` wrappers instead of growing
-tall rows. The commit detail row is the exception: its content is pinned with
-`position: sticky; left: 0` and capped near the viewport width, so commit messages and
-the file table stay readable without horizontal scrolling even when the surrounding
-table scrolls.
+Pico provides the look; `css/app.css` holds the small set of overrides and additions on
+top of it, with comments explaining anything non-obvious. The design principles behind
+those overrides: the app is denser than Pico's defaults (tightened globally through
+Pico's spacing custom properties, not per-element rules); data views (charts, tables) use
+the full container width while form-and-prose views are capped at a readable width; on
+small screens the layout sheds rather than wraps (nav labels drop out, wide tables scroll
+sideways in their `overflow-auto` wrappers); tables use tabular numerals with
+right-aligned numeric columns. No external fonts.
 
 Icons are ten individual SVGs copied from [Lucide](https://lucide.dev) (ISC, see
 `assets/icons/LICENSE`) into `assets/icons/`, applied as
@@ -372,5 +345,7 @@ fine for bounded lists like a page of 100 commits.
 - Commit messages are plain, single-line descriptions of the change. No attribution
   trailers, no mention of AI tooling.
 - Comments state constraints the code can't show; match the existing style and density.
+- Dates shown in the UI are ISO 8601 (`yyyy-mm-dd`), via `isoDate`/`isoDateTime` from
+  `js/compute/time.js` — never locale or US formats.
 - `old/` is read-only reference and will be deleted once parity is confirmed; the `old/`
   excludes in the lint/fmt scripts go with it.

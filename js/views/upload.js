@@ -3,6 +3,7 @@
  * input, shallow validation with inline errors, a sample loader, and the
  * loaded-data card.
  */
+import { isoDate } from "../compute/time.js";
 import { snapshot } from "../config.js";
 import * as dataset from "../dataset.js";
 import * as db from "../db.js";
@@ -58,8 +59,6 @@ export function formatSize(bytes) {
 export function registerUploadView(Alpine) {
   /** @returns {AppStore} */
   const app = () => /** @type {AppStore} */ (Alpine.store("app"));
-  const dateFormat = new Intl.DateTimeFormat(undefined, { dateStyle: "medium" });
-
   Alpine.data("uploadView", () => ({
     parsing: false,
     error: "",
@@ -77,7 +76,7 @@ export function registerUploadView(Alpine) {
     dateRangeLabel() {
       const { firstTime, lastTime } = app();
       if (firstTime === 0) return "";
-      return `${dateFormat.format(firstTime)} – ${dateFormat.format(lastTime)}`;
+      return `${isoDate(firstTime)} – ${isoDate(lastTime)}`;
     },
     /** @returns {string} */
     sizeLabel() {
