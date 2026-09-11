@@ -1,5 +1,5 @@
 /**
- * Calendar arithmetic on epoch milliseconds, in local time (design 8.4).
+ * Calendar arithmetic on epoch milliseconds, in local time.
  *
  * Everything goes through native `Date` setters, so daylight saving
  * transitions are handled by the runtime and buckets always start at local

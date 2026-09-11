@@ -1,5 +1,5 @@
 /**
- * Series colours and theme colours (design 10). The palette is applied by
+ * Series colours and theme colours. The palette is applied by
  * sorted position so neighbouring series differ; chart text and grid colours
  * read Pico's custom properties so both themes look right.
  */

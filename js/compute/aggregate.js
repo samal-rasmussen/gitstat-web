@@ -1,5 +1,5 @@
 /**
- * Aggregation functions and group totals (design 8.3).
+ * Aggregation functions and group totals.
  */
 
 /**

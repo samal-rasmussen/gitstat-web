@@ -1,5 +1,5 @@
 /**
- * The config view (design 9.4): one form, changes applied immediately and
+ * The config view: one form, changes applied immediately and
  * persisted. The general controls bind straight to `$store.config`; the
  * pattern textareas and the author table translate between the store's shape
  * and the form.

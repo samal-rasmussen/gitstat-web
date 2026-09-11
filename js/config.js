@@ -1,5 +1,5 @@
 /**
- * The config store (design 7.2): the `Config` shape plus `save()` and
+ * The config store: the `Config` shape plus `save()` and
  * `reset()`. On startup the value stored in `localStorage['config']` is merged
  * over the defaults so new keys get defaults. An `Alpine.effect` serialises
  * the store on every change and re-runs `dataset.rebuild`.

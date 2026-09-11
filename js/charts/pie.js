@@ -1,5 +1,5 @@
 /**
- * The pie chart (design 10): slices sorted descending, legend hidden,
+ * The pie chart: slices sorted descending, legend hidden,
  * tooltip shows value and percentage.
  */
 import { themeColors } from "./palette.js";

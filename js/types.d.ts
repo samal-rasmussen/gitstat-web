@@ -1,4 +1,4 @@
-// Ambient interfaces so JSDoc can reference them without imports (design 6.2).
+// Ambient interfaces so JSDoc can reference them without imports.
 
 interface Signature {
   name: string;

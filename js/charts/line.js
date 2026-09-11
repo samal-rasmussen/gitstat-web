@@ -1,5 +1,5 @@
 /**
- * The stacked line chart (design 10): category x axis of bucket labels,
+ * The stacked line chart: category x axis of bucket labels,
  * stacked y axis unless negatives, `fill` to the previous dataset, legend
  * hidden above 20 series, tooltip in index mode sorted by value with zeroes
  * hidden above 10 series, animation off above a few thousand points.

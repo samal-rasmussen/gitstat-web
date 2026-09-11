@@ -1,6 +1,6 @@
 /**
  * The one pass over all files: raw data plus config in, sorted
- * `ExtendedCommit[]` out (design 8.1). Pure; runs once per dataset load or
+ * `ExtendedCommit[]` out. Pure; runs once per dataset load or
  * config change.
  */
 

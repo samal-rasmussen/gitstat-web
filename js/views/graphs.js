@@ -1,5 +1,5 @@
 /**
- * The graphs view (design 9.2): controls bound to the URL query, a stacked
+ * The graphs view: controls bound to the URL query, a stacked
  * line chart, and a pie chart beside a summary table, all over the same
  * date-filtered subset of the dataset.
  */

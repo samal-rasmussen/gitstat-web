@@ -1,5 +1,5 @@
 /**
- * Boot sequence (design 5.2): register the `x-view` directive, the stores and
+ * Boot sequence: register the `x-view` directive, the stores and
  * the view components, load the persisted config and dataset, start the
  * router, then start Alpine. The dataset load is awaited before `start()` so
  * the first render already knows whether data exists.

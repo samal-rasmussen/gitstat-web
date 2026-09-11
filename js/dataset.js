@@ -1,5 +1,5 @@
 /**
- * The non-reactive dataset holder (design 7.1). A plain module, not a store:
+ * The non-reactive dataset holder. A plain module, not a store:
  * wrapping tens of thousands of commits in Alpine's deep reactive proxies
  * would make every access slow. Only the small derived values in `$store.app`
  * are reactive; views re-read the dataset through the getters when

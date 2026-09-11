@@ -1,6 +1,6 @@
 declare const Chart: typeof import("chart.js").Chart;
 
-/** The small reactive values in `$store.app` (design 7.1). */
+/** The small reactive values in `$store.app`. */
 interface AppStore {
   dataVersion: number;
   projectName: string;
@@ -11,13 +11,13 @@ interface AppStore {
   summary: string;
 }
 
-/** `$store.config`: the `Config` shape plus its actions (design 7.2). */
+/** `$store.config`: the `Config` shape plus its actions. */
 interface ConfigStore extends Config {
   save(): void;
   reset(): void;
 }
 
-/** What `js/db.js` stores under its single key (design 7.3). */
+/** What `js/db.js` stores under its single key. */
 interface DatasetRecord {
   data: GitStatData;
   sizeBytes: number;

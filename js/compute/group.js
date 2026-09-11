@@ -1,5 +1,5 @@
 /**
- * Grouping of extended commits (design 8.2). Totals and averages are filled
+ * Grouping of extended commits. Totals and averages are filled
  * in later by `aggregate.js`.
  */
 

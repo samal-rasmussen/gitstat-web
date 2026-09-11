@@ -1,5 +1,5 @@
 /**
- * Dataset persistence (design 7.3): one IndexedDB database with one object
+ * Dataset persistence: one IndexedDB database with one object
  * store and one key. The dataset record — the parsed object plus its byte
  * size — is stored by structured clone, which is faster than re-parsing text
  * and has no size ceiling in practice.

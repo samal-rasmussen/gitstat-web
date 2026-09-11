@@ -1,5 +1,5 @@
 /**
- * The commits view (design 9.3): a sortable, paginated table with an
+ * The commits view: a sortable, paginated table with an
  * expandable detail row per commit. Sort, page size and page live in the URL.
  */
 import * as dataset from "../dataset.js";

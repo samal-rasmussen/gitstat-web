@@ -1,5 +1,5 @@
 /**
- * The upload view component (design 9.1): a dropzone that is also a file
+ * The upload view component: a dropzone that is also a file
  * input, shallow validation with inline errors, a sample loader, and the
  * loaded-data card.
  */
@@ -8,7 +8,7 @@ import * as dataset from "../dataset.js";
 import * as db from "../db.js";
 
 /**
- * Shallow, deliberate validation (design 6.1): the top-level shape, that
+ * Shallow, deliberate validation: the top-level shape, that
  * `projects` is an array, and that each commit has `hash`, `author.time`,
  * `committer.time` and a `files` array. Anything else is trusted.
  * @param {unknown} data

@@ -1,5 +1,5 @@
 /**
- * Time series for the line chart (design 8.5).
+ * Time series for the line chart.
  */
 
 import { add, label, startOf } from "./time.js";
