@@ -1,3 +1,113 @@
-<section>
+<section x-data="commitsView">
   <h1>Commits</h1>
+  <fieldset class="grid">
+    <label>
+      Sort by
+      <select x-model="sort" @change="setSort">
+        <option value="time">Time</option>
+        <option value="additions">Additions</option>
+        <option value="deletions">Deletions</option>
+        <option value="mutations">Mutations</option>
+      </select>
+    </label>
+    <label>
+      Per page
+      <select x-model="per" @change="setPer">
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </label>
+    <label>
+      Page <span x-text="page"></span> of <span x-text="pageCount"></span>
+      <div role="group">
+        <button class="secondary" :disabled="page <= 1" @click="previous">Previous</button>
+        <button class="secondary" :disabled="page >= pageCount" @click="next">Next</button>
+      </div>
+    </label>
+  </fieldset>
+  <div class="overflow-auto">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Date</th>
+          <th>Author</th>
+          <th>Title</th>
+          <th>Additions</th>
+          <th>Deletions</th>
+          <th></th>
+        </tr>
+      </thead>
+      <template x-for="c in rows" :key="c.hash">
+        <tbody>
+          <tr class="commit-row" :class="c.excluded && 'dimmed'" @click="toggle(c.hash)">
+            <td>
+              <span
+                class="icon icon-chevron-right"
+                :class="open[c.hash] && 'rotated'"
+                aria-hidden="true"
+              ></span>
+            </td>
+            <td x-text="dateLabel(c.time)"></td>
+            <td x-text="c.author"></td>
+            <td x-text="c.title"></td>
+            <td class="added" x-text="c.additions.toLocaleString()"></td>
+            <td class="removed" x-text="c.deletions.toLocaleString()"></td>
+            <td>
+              <span class="icon icon-git-merge" x-show="c.isMerge" aria-label="merge commit"></span>
+            </td>
+          </tr>
+          <template x-if="open[c.hash]">
+            <tr class="commit-detail">
+              <td colspan="7">
+                <p>
+                  <code x-text="c.hash"></code> &middot; <span x-text="c.project"></span>
+                  <label class="exclude-commit">
+                    <input
+                      type="checkbox"
+                      :checked="isExcluded(c.hash)"
+                      @change="toggleExclude(c.hash)"
+                    />
+                    Exclude this commit
+                  </label>
+                </p>
+                <p class="commit-body" x-show="c.body !== ''" x-text="c.body"></p>
+                <table x-show="c.files.length > 0">
+                  <thead>
+                    <tr>
+                      <th>File</th>
+                      <th>Additions</th>
+                      <th>Deletions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template x-for="f in c.files" :key="f.filepath">
+                      <tr :class="f.excluded && 'dimmed'">
+                        <td>
+                          <span x-text="f.filepath"></span>
+                          <template x-if="f.renameOf !== undefined">
+                            <small class="rename" x-text="'was ' + f.renameOf"></small>
+                          </template>
+                        </td>
+                        <template x-if="f.isBinary">
+                          <td colspan="2">binary</td>
+                        </template>
+                        <template x-if="!f.isBinary">
+                          <td class="added" x-text="f.additions.toLocaleString()"></td>
+                        </template>
+                        <template x-if="!f.isBinary">
+                          <td class="removed" x-text="f.deletions.toLocaleString()"></td>
+                        </template>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </template>
+        </tbody>
+      </template>
+    </table>
+  </div>
 </section>

@@ -630,10 +630,13 @@ Node's `fs.watch` is the answer, not a bigger server.
   dataset for checking the views by hand, with many authors, merges, renames, binaries and
   commit bodies, and enough commits that pagination and "Others" folding kick in. Alpine is
   the chosen repository: small to clone, a few thousand commits, and one of our dependencies.
-  Generated with a blob-less clone, since smol-gitstat only reads the log:
+  Generated with a full clone — not a blob-less one: `git log --numstat` needs blob contents,
+  so a `--filter=blob:none` clone fetches every blob lazily over the network and takes
+  effectively forever, while the full clone is 17 MB and the generator finishes in under a
+  second:
 
   ```sh
-  git clone --filter=blob:none https://github.com/alpinejs/alpine /tmp/alpine
+  git clone https://github.com/alpinejs/alpine /tmp/alpine
   cd /tmp/alpine && npx smol-gitstat --out <repo>/samples/local/alpine.json
   ```
 

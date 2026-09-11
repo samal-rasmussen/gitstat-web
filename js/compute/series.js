@@ -2,7 +2,7 @@
  * Time series for the line chart (design 8.5).
  */
 
-import { add, bucketKey, label, startOf } from "./time.js";
+import { add, label, startOf } from "./time.js";
 
 /** Above this many points the smallest groups fold into `Others`. */
 const POINT_CAP = 2000;
@@ -28,37 +28,66 @@ const POINT_CAP = 2000;
 export function buildSeries(groups, aggregator, unit, from, to) {
   /** @type {string[]} */
   const labels = [];
-  /** @type {Map<string, number>} */
-  const indexByKey = new Map();
-  const end = startOf(to, unit);
-  for (let ms = startOf(from, unit); ms <= end; ms = add(ms, unit, 1)) {
-    indexByKey.set(bucketKey(ms, unit), labels.length);
+  /** @type {number[]} Bucket start times, ascending. */
+  const starts = [];
+  const last = startOf(to, unit);
+  for (let ms = startOf(from, unit); ms <= last; ms = add(ms, unit, 1)) {
+    starts.push(ms);
     labels.push(label(ms, unit));
   }
+  const end = labels.length === 0 ? 0 : add(last, unit, 1);
 
-  let series = groups.map((group) => {
-    const values = Array.from({ length: labels.length }, () => 0);
+  /**
+   * Add a group's in-range values into a values array. A group's commits are
+   * ascending by time, so a single pointer walk maps each commit to its
+   * bucket without per-commit calendar math.
+   * @param {Group} group
+   * @param {number[]} values
+   */
+  function accumulate(group, values) {
+    let index = 0;
     for (const commit of group.commits) {
-      const index = indexByKey.get(bucketKey(commit.time, unit));
-      if (index !== undefined) values[index] += aggregator(commit);
+      if (commit.time < starts[0] || commit.time >= end) continue;
+      while (index + 1 < starts.length && commit.time >= starts[index + 1]) index++;
+      values[index] += aggregator(commit);
     }
+  }
+  const zeroes = () => Array.from({ length: labels.length }, () => 0);
+
+  // Folding is decided before any values arrays exist, so a range with many
+  // buckets never allocates one full-length array per folded group.
+  let keptGroups = groups;
+  /** @type {Group[]} */
+  let foldedGroups = [];
+  if (labels.length > 0 && groups.length * labels.length > POINT_CAP) {
+    const kept = Math.max(1, Math.floor(POINT_CAP / labels.length) - 1);
+    const sums = groups.map((group) => {
+      let sum = 0;
+      for (const commit of group.commits) {
+        if (commit.time >= starts[0] && commit.time < end) sum += aggregator(commit);
+      }
+      return sum;
+    });
+    const bySize = groups.map((group, index) => index).sort((a, b) => sums[b] - sums[a]);
+    const keptSet = new Set(bySize.slice(0, kept));
+    keptGroups = groups.filter((group, index) => keptSet.has(index));
+    foldedGroups = groups.filter((group, index) => !keptSet.has(index));
+  }
+
+  const series = keptGroups.map((group) => {
+    const values = zeroes();
+    accumulate(group, values);
     return { name: group.name, values };
   });
-
   /** @type {string[]} */
   const others = [];
-  if (labels.length > 0 && series.length * labels.length > POINT_CAP) {
-    const kept = Math.max(1, Math.floor(POINT_CAP / labels.length) - 1);
-    const sums = new Map(series.map((s) => [s, s.values.reduce((sum, v) => sum + v, 0)]));
-    const bySize = [...series].sort((a, b) => (sums.get(b) ?? 0) - (sums.get(a) ?? 0));
-    const folded = new Set(bySize.slice(kept));
-    const othersValues = Array.from({ length: labels.length }, () => 0);
-    for (const s of folded) {
-      for (let i = 0; i < labels.length; i++) othersValues[i] += s.values[i];
-      others.push(s.name);
+  if (foldedGroups.length > 0) {
+    const values = zeroes();
+    for (const group of foldedGroups) {
+      accumulate(group, values);
+      others.push(group.name);
     }
-    series = series.filter((s) => !folded.has(s));
-    series.push({ name: "Others", values: othersValues });
+    series.push({ name: "Others", values });
   }
 
   return { labels, series, others };

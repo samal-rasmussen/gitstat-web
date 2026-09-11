@@ -84,6 +84,21 @@ export function bucketKey(ms, unit) {
   }
 }
 
+// Constructing an Intl.DateTimeFormat is far more expensive than using one,
+// so the label formatters are built once — lazily, so they pick up a test's
+// process.env.TZ rather than the timezone at import time.
+/** @type {{ day: Intl.DateTimeFormat, month: Intl.DateTimeFormat, year: Intl.DateTimeFormat } | null} */
+let formats = null;
+
+function labelFormats() {
+  formats ??= {
+    day: new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short", day: "numeric" }),
+    month: new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short" }),
+    year: new Intl.DateTimeFormat(undefined, { year: "numeric" }),
+  };
+  return formats;
+}
+
 /**
  * A human label for the bucket containing `ms`, in the browser locale.
  * @param {number} ms
@@ -95,15 +110,11 @@ export function label(ms, unit) {
   switch (unit) {
     case "day":
     case "week":
-      return new Intl.DateTimeFormat(undefined, {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      }).format(start);
+      return labelFormats().day.format(start);
     case "month":
-      return new Intl.DateTimeFormat(undefined, { year: "numeric", month: "short" }).format(start);
+      return labelFormats().month.format(start);
     case "year":
-      return new Intl.DateTimeFormat(undefined, { year: "numeric" }).format(start);
+      return labelFormats().year.format(start);
   }
 }
 

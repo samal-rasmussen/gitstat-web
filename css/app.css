@@ -70,3 +70,55 @@
 .upload-error {
   color: var(--pico-del-color);
 }
+
+.chart-line {
+  position: relative;
+  height: 24rem;
+}
+
+.chart-pie {
+  position: relative;
+  height: 20rem;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.dimmed {
+  opacity: 0.5;
+}
+
+.added {
+  color: var(--pico-ins-color);
+}
+
+.removed {
+  color: var(--pico-del-color);
+}
+
+.commit-row {
+  cursor: pointer;
+}
+
+.commit-row .icon-chevron-right {
+  transition: transform 0.15s;
+}
+
+.commit-row .icon-chevron-right.rotated {
+  transform: rotate(90deg);
+}
+
+.commit-body {
+  white-space: pre-wrap;
+}
+
+.rename {
+  display: block;
+  color: var(--pico-muted-color);
+}
+
+.exclude-commit {
+  display: inline-block;
+  margin-inline-start: 1rem;
+}

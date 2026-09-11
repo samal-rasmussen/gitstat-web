@@ -1,3 +1,104 @@
-<section>
+<section x-data="configView">
   <h1>Config</h1>
+  <form @submit.prevent>
+    <h2>General</h2>
+    <fieldset>
+      <legend>Date basis</legend>
+      <label>
+        <input type="radio" name="dateBasis" value="committer" x-model="$store.config.dateBasis" />
+        Committer date
+      </label>
+      <label>
+        <input type="radio" name="dateBasis" value="author" x-model="$store.config.dateBasis" />
+        Author date
+      </label>
+    </fieldset>
+    <label>
+      <input type="checkbox" x-model="$store.config.includeMergeCommits" />
+      Include merge commits
+    </label>
+    <small>
+      Merge commits carry no line counts, so this only affects the commit count aggregation.
+    </small>
+
+    <h2>Files</h2>
+    <label>
+      Include patterns
+      <textarea
+        rows="4"
+        x-model="includeText"
+        @change="setIncludePatterns"
+        placeholder="one regular expression per line"
+      ></textarea>
+      <small>Only files matching a pattern count. Leave empty to include everything.</small>
+      <small class="upload-error" x-show="invalidInclude !== ''">
+        Invalid: <span x-text="invalidInclude"></span>
+      </small>
+    </label>
+    <label>
+      Exclude patterns
+      <textarea
+        rows="4"
+        x-model="excludeText"
+        @change="setExcludePatterns"
+        placeholder="one regular expression per line"
+      ></textarea>
+      <small>Files matching a pattern never count. Exclude wins over include.</small>
+      <small class="upload-error" x-show="invalidExclude !== ''">
+        Invalid: <span x-text="invalidExclude"></span>
+      </small>
+    </label>
+
+    <h2>Authors</h2>
+    <p>
+      <small
+        >Merge duplicate names by pointing them at one real name, or exclude an author
+        entirely.</small
+      >
+    </p>
+    <datalist id="known-authors" x-ref="knownAuthors"></datalist>
+    <div class="overflow-auto">
+      <table>
+        <thead>
+          <tr>
+            <th>Author</th>
+            <th>Commits</th>
+            <th>Merge into</th>
+            <th>Exclude</th>
+          </tr>
+        </thead>
+        <tbody x-ref="authors" @change="onAuthorChange($event)"></tbody>
+      </table>
+    </div>
+
+    <h2>Excluded commits</h2>
+    <p x-show="$store.config.excludeCommits.length === 0"><small>None.</small></p>
+    <ul>
+      <template x-for="hash in $store.config.excludeCommits" :key="hash">
+        <li>
+          <code x-text="hash"></code>
+          <button
+            type="button"
+            class="secondary outline remove-commit"
+            @click="removeExcludedCommit(hash)"
+          >
+            <span class="icon icon-x" aria-hidden="true"></span> Remove
+          </button>
+        </li>
+      </template>
+    </ul>
+    <button
+      type="button"
+      class="secondary"
+      x-show="$store.config.excludeCommits.length > 0"
+      @click="clearExcludedCommits"
+    >
+      Clear all
+    </button>
+
+    <hr />
+    <button type="button" class="secondary" @click="reset">
+      <span class="icon icon-rotate-ccw" aria-hidden="true"></span> Reset config
+    </button>
+  </form>
 </section>

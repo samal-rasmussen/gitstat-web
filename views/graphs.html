@@ -1,3 +1,60 @@
-<section>
+<section x-data="graphsView">
   <h1>Graphs</h1>
+  <fieldset class="grid">
+    <label>
+      Aggregation
+      <select x-model="agg" @change="setParam('agg', agg)">
+        <option value="commits">Commits</option>
+        <option value="additions">Additions</option>
+        <option value="deletions">Deletions</option>
+        <option value="mutations">Mutations</option>
+        <option value="difference">Difference</option>
+      </select>
+    </label>
+    <label>
+      Group by
+      <select x-model="by" @change="setParam('by', by)">
+        <option value="author">Author</option>
+        <option value="project">Project</option>
+        <option value="filetype">File type</option>
+      </select>
+    </label>
+    <label>
+      Time unit
+      <select x-model="unit" @change="setParam('unit', unit)">
+        <option value="">Auto</option>
+        <option value="day">Day</option>
+        <option value="week">Week</option>
+        <option value="month">Month</option>
+        <option value="year">Year</option>
+      </select>
+    </label>
+    <label>
+      From
+      <input type="date" x-model="from" @change="setParam('from', from)" />
+    </label>
+    <label>
+      To
+      <input type="date" x-model="to" @change="setParam('to', to)" />
+    </label>
+  </fieldset>
+  <p x-show="message !== ''" x-text="message"></p>
+  <div x-show="message === ''">
+    <div class="chart-line"><canvas x-ref="line"></canvas></div>
+    <div class="grid">
+      <div class="chart-pie"><canvas x-ref="pie"></canvas></div>
+      <div class="overflow-auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Total</th>
+              <th>Average per <span x-text="unitLabel"></span></th>
+            </tr>
+          </thead>
+          <tbody x-ref="tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </section>
