@@ -574,6 +574,7 @@ Dev dependencies, all invoked through npm scripts:
 | sirv-cli | static dev server | none |
 | typescript | `tsc` type-checks JSDoc-annotated JS | `tsconfig.json` |
 | @types/alpinejs, chart.js | types only, for the vendored libraries | |
+| @types/node | types only, so `tsc` understands the `node:` imports in unit tests | |
 | oxlint | linting | none; `old/` and `vendor/` are ignored via script flags |
 | oxfmt | formatting | none; `old/`, `vendor/` and Markdown are excluded via path patterns |
 | @playwright/test | end-to-end tests | `playwright.config.js` |
@@ -599,7 +600,8 @@ are third-party; Markdown is excluded so the formatter never churns `design.md` 
 
 `tsconfig.json`: `allowJs`, `checkJs`, `noEmit`, `strict`, `target: ES2022`,
 `module: ES2022`, `moduleResolution: bundler`, `esModuleInterop` (the `alpinejs` types use
-`export =`), `lib: [ES2022, DOM, DOM.Iterable]`, `include: [js, tests, vendor/*.d.ts]`. `vendor/alpine.esm.d.ts` re-exports the `alpinejs` types so
+`export =`), `lib: [ES2022, DOM, DOM.Iterable]`, `types: [node, alpinejs]`,
+`include: [js, tests, vendor/*.d.ts]`. `vendor/alpine.esm.d.ts` re-exports the `alpinejs` types so
 `import Alpine from '../vendor/alpine.esm.js'` is typed. `js/globals.d.ts` declares
 `const Chart: typeof import('chart.js').Chart`.
 

@@ -1,0 +1,233 @@
+{
+  "version": "1.0.0",
+  "projects": [
+    {
+      "name": "alpha",
+      "commits": [
+        {
+          "hash": "a01",
+          "author": { "name": "Alice", "time": "2020-12-28T10:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2020-12-28T10:00:00+00:00" },
+          "message": "Initial commit\n\nFirst paragraph of the body.\n\nSecond paragraph of the body.",
+          "isMerge": false,
+          "files": [
+            {
+              "filepath": "src/main.js",
+              "isBinary": false,
+              "additions": 100,
+              "deletions": 0,
+              "rawAdditions": 100,
+              "rawDeletions": 0
+            },
+            {
+              "filepath": "README.md",
+              "isBinary": false,
+              "additions": 20,
+              "deletions": 0,
+              "rawAdditions": 20,
+              "rawDeletions": 0
+            }
+          ]
+        },
+        {
+          "hash": "a02",
+          "author": { "name": "Alice", "time": "2020-12-29T10:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2020-12-29T10:00:00+00:00" },
+          "message": "Add styles",
+          "isMerge": false,
+          "files": [
+            { "filepath": "css/app.css", "isBinary": false, "additions": 50, "deletions": 2 }
+          ]
+        },
+        {
+          "hash": "a03",
+          "author": { "name": "Bob", "time": "2020-12-30T08:00:00+00:00" },
+          "committer": { "name": "Bob", "time": "2020-12-30T11:00:00+00:00" },
+          "message": "Fix bug",
+          "isMerge": false,
+          "files": [
+            { "filepath": "src/main.js", "isBinary": false, "additions": 5, "deletions": 3 }
+          ]
+        },
+        {
+          "hash": "a04",
+          "author": { "name": "Bobby Tables", "time": "2020-12-31T09:00:00+00:00" },
+          "committer": { "name": "Bobby Tables", "time": "2020-12-31T09:00:00+00:00" },
+          "message": "Refactor",
+          "isMerge": false,
+          "files": [
+            { "filepath": "src/util.js", "isBinary": false, "additions": 30, "deletions": 10 }
+          ]
+        },
+        {
+          "hash": "a05",
+          "author": { "name": "Alice", "time": "2021-01-01T10:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2021-01-01T10:00:00+00:00" },
+          "message": "New year cleanup",
+          "isMerge": false,
+          "files": [
+            { "filepath": "src/main.js", "isBinary": false, "additions": 1, "deletions": 1 }
+          ]
+        },
+        {
+          "hash": "a06",
+          "author": { "name": "Alice", "time": "2021-01-04T10:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2021-01-04T10:00:00+00:00" },
+          "message": "Add logo",
+          "isMerge": false,
+          "files": [
+            { "filepath": "assets/logo.png", "isBinary": true, "additions": 0, "deletions": 0 },
+            { "filepath": "src/main.js", "isBinary": false, "additions": 2, "deletions": 0 }
+          ]
+        },
+        {
+          "hash": "a07",
+          "author": { "name": "Bob", "time": "2021-01-05T10:00:00+00:00" },
+          "committer": { "name": "Bob", "time": "2021-01-05T10:00:00+00:00" },
+          "message": "Rename module",
+          "isMerge": false,
+          "files": [
+            {
+              "filepath": "src/{old => new}/mod.js",
+              "isBinary": false,
+              "additions": 4,
+              "deletions": 1
+            }
+          ]
+        },
+        {
+          "hash": "a08",
+          "author": { "name": "Alice", "time": "2021-01-05T14:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2021-01-05T14:00:00+00:00" },
+          "message": "Merge branch 'feature'",
+          "isMerge": true,
+          "files": []
+        },
+        {
+          "hash": "a09",
+          "author": { "name": "Bob", "time": "2021-01-06T10:00:00+00:00" },
+          "committer": { "name": "Bob", "time": "2021-01-06T10:00:00+00:00" },
+          "message": "Add tests",
+          "isMerge": false,
+          "files": [
+            { "filepath": "tests/main.test.js", "isBinary": false, "additions": 40, "deletions": 0 }
+          ]
+        },
+        {
+          "hash": "a10",
+          "author": { "name": "Alice", "time": "2021-01-07T10:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2021-01-07T10:00:00+00:00" },
+          "message": "Docs only",
+          "isMerge": false,
+          "files": [
+            { "filepath": "docs/guide.md", "isBinary": false, "additions": 15, "deletions": 0 }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "beta",
+      "commits": [
+        {
+          "hash": "b01",
+          "author": { "name": "Bob", "time": "2020-12-27T10:00:00+00:00" },
+          "committer": { "name": "Bob", "time": "2020-12-27T10:00:00+00:00" },
+          "message": "Start beta",
+          "isMerge": false,
+          "files": [
+            { "filepath": "index.html", "isBinary": false, "additions": 30, "deletions": 0 }
+          ]
+        },
+        {
+          "hash": "b02",
+          "author": { "name": "Alice", "time": "2020-12-28T12:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2020-12-28T12:00:00+00:00" },
+          "message": "Wire up",
+          "isMerge": false,
+          "files": [{ "filepath": "js/app.js", "isBinary": false, "additions": 60, "deletions": 0 }]
+        },
+        {
+          "hash": "b03",
+          "author": { "name": "Bobby Tables", "time": "2021-01-02T10:00:00+00:00" },
+          "committer": { "name": "Bobby Tables", "time": "2021-01-02T10:00:00+00:00" },
+          "message": "Weekend hack",
+          "isMerge": false,
+          "files": [{ "filepath": "js/app.js", "isBinary": false, "additions": 25, "deletions": 5 }]
+        },
+        {
+          "hash": "b04",
+          "author": { "name": "Alice", "time": "2021-01-03T10:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2021-01-03T10:00:00+00:00" },
+          "message": "Polish",
+          "isMerge": false,
+          "files": [
+            { "filepath": "css/site.css", "isBinary": false, "additions": 10, "deletions": 4 }
+          ]
+        },
+        {
+          "hash": "b05",
+          "author": { "name": "Bob", "time": "2021-01-04T15:00:00+00:00" },
+          "committer": { "name": "Bob", "time": "2021-01-04T15:00:00+00:00" },
+          "message": "Move app to core",
+          "isMerge": false,
+          "files": [
+            {
+              "filepath": "js/core.js",
+              "renameOf": "js/app.js",
+              "isBinary": false,
+              "additions": 8,
+              "deletions": 2
+            }
+          ]
+        },
+        {
+          "hash": "b06",
+          "author": { "name": "Alice", "time": "2021-01-08T10:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2021-01-08T10:00:00+00:00" },
+          "message": "Data file",
+          "isMerge": false,
+          "files": [
+            { "filepath": "data/stats.csv", "isBinary": false, "additions": 100, "deletions": 0 }
+          ]
+        },
+        {
+          "hash": "b07",
+          "author": { "name": "Bob", "time": "2021-01-09T10:00:00+00:00" },
+          "committer": { "name": "Bob", "time": "2021-01-09T10:00:00+00:00" },
+          "message": "No extension",
+          "isMerge": false,
+          "files": [{ "filepath": "Makefile", "isBinary": false, "additions": 12, "deletions": 3 }]
+        },
+        {
+          "hash": "b08",
+          "author": { "name": "Alice", "time": "2021-02-01T10:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2021-02-01T10:00:00+00:00" },
+          "message": "February work",
+          "isMerge": false,
+          "files": [{ "filepath": "js/app.js", "isBinary": false, "additions": 9, "deletions": 9 }]
+        },
+        {
+          "hash": "b09",
+          "author": { "name": "Bob", "time": "2021-02-02T10:00:00+00:00" },
+          "committer": { "name": "Bob", "time": "2021-02-02T10:00:00+00:00" },
+          "message": "Cleanup",
+          "isMerge": false,
+          "files": [
+            { "filepath": "js/core.js", "isBinary": false, "additions": 0, "deletions": 20 }
+          ]
+        },
+        {
+          "hash": "b10",
+          "author": { "name": "Alice", "time": "2021-02-03T10:00:00+00:00" },
+          "committer": { "name": "Alice", "time": "2021-02-03T10:00:00+00:00" },
+          "message": "Mixed",
+          "isMerge": false,
+          "files": [
+            { "filepath": "js/app.js", "isBinary": false, "additions": 3, "deletions": 1 },
+            { "filepath": "css/site.css", "isBinary": false, "additions": 2, "deletions": 2 }
+          ]
+        }
+      ]
+    }
+  ]
+}

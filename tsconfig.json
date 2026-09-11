@@ -8,7 +8,8 @@
     "module": "ES2022",
     "moduleResolution": "bundler",
     "esModuleInterop": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"]
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "types": ["node", "alpinejs"]
   },
   "include": ["js", "tests", "vendor/*.d.ts"]
 }
