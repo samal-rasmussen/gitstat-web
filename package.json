@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "sirv . --dev --port 3000",
     "check": "tsc",
-    "lint": "oxlint --ignore-pattern old --ignore-pattern vendor",
-    "fmt": "oxfmt . '!old/**' '!vendor/**' '!samples/**' '!**/*.md'",
+    "lint": "oxlint --ignore-pattern vendor",
+    "fmt": "oxfmt . '!vendor/**' '!samples/**'",
     "test": "node --test 'tests/unit/**/*.test.js'",
     "test:e2e": "playwright test"
   },

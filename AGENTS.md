@@ -4,9 +4,8 @@ smol-gitstat-web visualises git history from a JSON file produced by
 [smol-gitstat](https://github.com/samal-rasmussen/smol-gitstat), entirely in the browser:
 activity over time as a stacked line chart, a share-of-total pie chart, a summary table,
 and a browsable commit list, with grouping by author, project or file type and
-configurable filters. It is a buildless rewrite of the original React app, which is kept
-unmodified in `old/` as reference until it is removed — never edit anything under `old/`
-(`old/ARCHITECTURE.md` describes it in depth).
+configurable filters. It is a buildless rewrite of the original React app,
+[gitstat-web](https://github.com/nielskrijger/gitstat-web).
 
 This file is the project documentation. `README.md` is the short user-facing summary.
 **Keep this file true**: when a change proves something written here wrong, correct it in
@@ -34,11 +33,11 @@ refresh.
 The three runtime libraries are vendored as single pinned files in `vendor/` — no CDN, no
 import map, and no new runtime dependencies without a very good reason:
 
-| Library | File | Loaded as |
-|---|---|---|
-| Alpine.js 3.17.2 | `vendor/alpine.esm.js` (from `alpinejs/dist/module.esm.js`) | ES module import from `js/app.js`, started explicitly with `Alpine.start()` |
-| Chart.js 4.5.1 | `vendor/chart.umd.js` | classic `<script defer>`; exposes the `Chart` global with everything registered |
-| Pico CSS 2.1.1 | `vendor/pico.min.css` | `<link rel="stylesheet">` |
+| Library          | File                                                        | Loaded as                                                                       |
+| ---------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Alpine.js 3.17.2 | `vendor/alpine.esm.js` (from `alpinejs/dist/module.esm.js`) | ES module import from `js/app.js`, started explicitly with `Alpine.start()`     |
+| Chart.js 4.5.1   | `vendor/chart.umd.js`                                       | classic `<script defer>`; exposes the `Chart` global with everything registered |
+| Pico CSS 2.1.1   | `vendor/pico.min.css`                                       | `<link rel="stylesheet">`                                                       |
 
 Why these forms: the CDN build of Alpine auto-starts in a microtask and would race our
 directive/store registration, so it must be imported and started explicitly. Chart.js's
@@ -116,20 +115,29 @@ old in `renameOf`:
 ```json
 {
   "version": "1.0.0",
-  "projects": [{
-    "name": "repo-folder-name",
-    "commits": [{
-      "hash": "…",
-      "author":    { "name": "Jane Doe", "time": "2020-04-29T19:14:15+01:00" },
-      "committer": { "name": "Jane Doe", "time": "2020-04-29T19:14:15+01:00" },
-      "message": "Subject line\n\nOptional body.",
-      "isMerge": false,
-      "files": [{
-        "filepath": "src/index.js", "renameOf": "lib/index.js",
-        "isBinary": false, "additions": 23, "deletions": 10
-      }]
-    }]
-  }]
+  "projects": [
+    {
+      "name": "repo-folder-name",
+      "commits": [
+        {
+          "hash": "…",
+          "author": { "name": "Jane Doe", "time": "2020-04-29T19:14:15+01:00" },
+          "committer": { "name": "Jane Doe", "time": "2020-04-29T19:14:15+01:00" },
+          "message": "Subject line\n\nOptional body.",
+          "isMerge": false,
+          "files": [
+            {
+              "filepath": "src/index.js",
+              "renameOf": "lib/index.js",
+              "isBinary": false,
+              "additions": 23,
+              "deletions": 10
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -176,10 +184,10 @@ text and no practical size ceiling. "Clear data" calls `db.clear()` and `dataset
 
 **URL state**: view settings live in the URL so charts are shareable.
 
-| View | Parameters | Defaults |
-|---|---|---|
-| graphs | `agg`, `by`, `unit`, `from`, `to` | `commits`, `author`, auto, first commit, last commit |
-| commits | `sort`, `page`, `per` | `time`, `1`, `50` |
+| View    | Parameters                        | Defaults                                             |
+| ------- | --------------------------------- | ---------------------------------------------------- |
+| graphs  | `agg`, `by`, `unit`, `from`, `to` | `commits`, `author`, auto, first commit, last commit |
+| commits | `sort`, `page`, `per`             | `time`, `1`, `50`                                    |
 
 Dates are `YYYY-MM-DD` in local time. Missing or invalid parameters fall back to defaults
 without rewriting the URL; only user changes write to it. Changing sort or page size
@@ -210,7 +218,7 @@ under Node for unit tests.
   path segment, or `(none)`), each with only that extension's files and recomputed
   totals, so a commit touching `.js` and `.css` counts once in each group.
 - **`aggregate.js`** — `aggregator(agg)` returns a per-commit function; `totals(groups,
-  aggregator, periods)` fills `total` and `average` (total / periods in range) and sorts
+aggregator, periods)` fills `total` and `average` (total / periods in range) and sorts
   descending by total.
 - **`time.js`** — native `Date` in local time: `startOf`, `add`, `bucketKey`, `label`,
   `periodCount`, `autoUnit(from, to, max = 100)` (finest unit with at most `max`
@@ -288,8 +296,8 @@ Scripts are in `package.json`; the four that must all be green before **every** 
 
 ```sh
 npm run check          # tsc over the JSDoc types
-npm run lint           # oxlint (old/ and vendor/ ignored)
-npm run fmt -- --check # oxfmt (old/, vendor/, samples/, *.md excluded)
+npm run lint           # oxlint (vendor/ ignored)
+npm run fmt -- --check # oxfmt (vendor/ and samples/ excluded)
 npm test               # unit tests, node:test
 ```
 
@@ -326,11 +334,12 @@ includes `js`, `tests`, `vendor/*.d.ts` and `playwright.config.js`. JSDoc conven
   cd /tmp/alpine && npx smol-gitstat --out <repo>/samples/local/alpine.json
   ```
 
-- **Performance data**: the old React sample in `old/static` (13,000 commits, 16 MB).
+- **Performance data**: generate a large dataset the same way from a big repository such
+  as facebook/react. The numbers below were measured on a 13,000-commit, 16 MB sample.
 
 ## Performance
 
-Targets: a dataset like the React sample must extend in well under a second and re-render
+Targets: a dataset of that size must extend in well under a second and re-render
 graphs in under 100 ms after a control change (measured: `extendCommits` ~50 ms,
 control-change compute 2–8 ms). Rules that keep it that way: `extendCommits` is the only
 pass over all files — everything after works on the commit array and precomputed totals;
@@ -352,5 +361,3 @@ fine for bounded lists like a page of 100 commits.
 - Comments state constraints the code can't show; match the existing style and density.
 - Dates shown in the UI are ISO 8601 (`yyyy-mm-dd`), via `isoDate`/`isoDateTime` from
   `js/compute/time.js` — never locale or US formats.
-- `old/` is read-only reference and will be deleted once parity is confirmed; the `old/`
-  excludes in the lint/fmt scripts go with it.

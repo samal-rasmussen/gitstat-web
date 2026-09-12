@@ -51,8 +51,7 @@ End-to-end tests use Playwright (`npx playwright install chromium` once):
 npm run test:e2e
 ```
 
-`AGENTS.md` describes the architecture and how to work in the project. The original React
-application this replaces is kept unmodified in `old/` for reference.
+`AGENTS.md` describes the architecture and how to work in the project.
 
 ## Licence and credit
 
