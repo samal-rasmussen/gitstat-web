@@ -183,7 +183,9 @@ text and no practical size ceiling. "Clear data" calls `db.clear()` and `dataset
 
 Dates are `YYYY-MM-DD` in local time. Missing or invalid parameters fall back to defaults
 without rewriting the URL; only user changes write to it. Changing sort or page size
-resets the page parameter.
+resets the page parameter. The router remembers each view's last query in sessionStorage
+and restores it when a bare view hash (a nav link) is opened, so settings survive
+navigating away and back within the session; a URL that carries parameters always wins.
 
 ## Compute pipeline (`js/compute/`)
 

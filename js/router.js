@@ -8,6 +8,20 @@
 
 const VIEWS = ["upload", "graphs", "commits", "config", "about"];
 const DATA_VIEWS = ["graphs", "commits", "config"];
+const REMEMBER_KEY = "viewQueries";
+
+/**
+ * The per-view queries remembered in this browser session.
+ * @returns {Record<string, Record<string, string>>}
+ */
+function loadRemembered() {
+  try {
+    const parsed = JSON.parse(sessionStorage.getItem(REMEMBER_KEY) ?? "{}");
+    return typeof parsed === "object" && parsed !== null ? parsed : {};
+  } catch {
+    return {};
+  }
+}
 
 /**
  * Parse a location hash into a view name and query object.
@@ -85,8 +99,14 @@ export function startRouter(Alpine, hasData) {
     Alpine.store("router")
   );
 
+  // The last query seen per view, kept for the browser session: a bare view
+  // hash (the nav links) restores where the user left off, while a new tab
+  // starts from defaults. The URL stays the source of truth — this only fills
+  // in a query where the URL carries none.
+  const remembered = loadRemembered();
+
   function apply() {
-    const { view, query } = parseHash(location.hash);
+    let { view, query } = parseHash(location.hash);
     if (view === null) {
       location.hash = "#/";
       return;
@@ -94,6 +114,18 @@ export function startRouter(Alpine, hasData) {
     if (DATA_VIEWS.includes(view) && !hasData()) {
       location.hash = "#/";
       return;
+    }
+    const saved = remembered[view];
+    if (Object.keys(query).length === 0 && saved !== undefined && Object.keys(saved).length > 0) {
+      query = saved;
+      history.replaceState(null, "", buildHash(view, query));
+    } else {
+      remembered[view] = query;
+      try {
+        sessionStorage.setItem(REMEMBER_KEY, JSON.stringify(remembered));
+      } catch {
+        // Storage unavailable; restoring is a convenience only.
+      }
     }
     store.view = view;
     store.query = query;
