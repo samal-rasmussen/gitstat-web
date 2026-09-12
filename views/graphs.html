@@ -11,6 +11,16 @@
       .chart-pie {
         height: clamp(13rem, 6rem + 22vw, 24rem);
       }
+      /* From and to are one grid item with an inner two-column grid, so the
+         pair always wraps to the next line together. */
+      .date-range {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: inherit;
+        @media (min-width: 768px) {
+          grid-column: span 2;
+        }
+      }
     }
   </style>
   <h1>Graphs</h1>
@@ -21,8 +31,8 @@
         <option value="commits">Commits</option>
         <option value="additions">Additions</option>
         <option value="deletions">Deletions</option>
-        <option value="mutations">Mutations</option>
-        <option value="difference">Difference</option>
+        <option value="mutations">Additions + deletions</option>
+        <option value="difference">Additions &minus; deletions</option>
       </select>
     </label>
     <label>
@@ -43,14 +53,16 @@
         <option value="year">Year</option>
       </select>
     </label>
-    <label>
-      From
-      <input type="date" x-model="from" @change="setParam('from', from)" />
-    </label>
-    <label>
-      To
-      <input type="date" x-model="to" @change="setParam('to', to)" />
-    </label>
+    <div class="date-range">
+      <label>
+        From
+        <input type="date" x-model="from" @change="setParam('from', from)" />
+      </label>
+      <label>
+        To
+        <input type="date" x-model="to" @change="setParam('to', to)" />
+      </label>
+    </div>
   </fieldset>
   <p x-show="message !== ''" x-text="message"></p>
   <div x-show="message === ''">

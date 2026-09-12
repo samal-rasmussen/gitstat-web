@@ -1,6 +1,11 @@
 <section class="config-view narrow" x-data="configView">
   <style>
     .config-view {
+      /* Headings only have a bottom margin in Pico, and the help texts that
+         precede them are inline smalls, so the sections would run together. */
+      h2 {
+        margin-top: calc(var(--pico-spacing) * 2);
+      }
       .pattern-help {
         font-size: 0.875em;
       }
